@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    <div id="nav">
+      <router-link to="/">Prestataire</router-link>|
+      <router-link to="/administrateur">Adminitrateur</router-link>
+    </div>
     <router-view />
   </div>
 </template>

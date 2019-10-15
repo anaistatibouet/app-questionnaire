@@ -26,7 +26,7 @@
       </md-card-content>
       <md-card-actions>
         <router-link to="/questionnaire">
-          <md-button type="submit" class="md-raised md-primary">Commencer le questionnaire</md-button>
+          <md-button type="submit" class="md-raised md-primary">Commencer le test</md-button>
         </router-link>
       </md-card-actions>
     </md-card>
@@ -34,12 +34,10 @@
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
-import FormTitle from "@/components/FormTitle.vue";
+import FormTitle from '@/components/FormTitle.vue'
 
 export default {
-  name: "home",
+  name: 'home',
   data: () => ({
     atLastname: null,
     atFirstname: null,
@@ -49,7 +47,7 @@ export default {
   components: {
     FormTitle
   }
-};
+}
 </script>
 
 <style scoped lang="scss">
