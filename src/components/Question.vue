@@ -1,11 +1,18 @@
-<!-- 15/10 - Création du composant Vue qui boucle sur les réponses et qui récupère la valeur du check --> 
+<!-- 15/10 - 
+Création du composant Vue qui récupère les valeurs de la réponse, des checks et l'intitulé de la question
+Boucle sur le tableau de réponse pour les afficher 
+L'objet MyQuestion permet de récupérer les données 
+ -->
 <template>
   <div class="atFormQuestion">
+    <div>
+      <h1>{{q.atName}}</h1>
+    </div>
     <md-checkbox
-      v-model="MaQuestion.atCheck[index]"
-      v-for="(value, index) in MaQuestion.atResponse"
+      class="md-primary answer"
+      v-model="q.atCheck[index]"
+      v-for="(value, index) in q.atResponse"
       v-bind:key="value"
-      class="md-primary"
     >{{ value }}</md-checkbox>
   </div>
 </template>
@@ -13,13 +20,13 @@
 <script>
 export default {
   name: "Question",
-  data: () => ({
-    // return {
-    //   q: this.MaQuestion,
-    // };
-  }),
+  data() {
+    return {
+      q: this.MyQuestion
+    };
+  },
   props: {
-    MaQuestion: Object
+    MyQuestion: Object
   }
 };
 </script>

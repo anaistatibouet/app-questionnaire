@@ -1,9 +1,12 @@
-<!-- 15/10 - Mise en place du formulaire questionnaire contenant le composant Question --> 
+<!-- 15/10 - Mise en place du formulaire questionnaire contenant le composant Question -->
 <template>
   <div class="questionnaire">
+    <div>
+      <FormTitle title="Questionnaire"></FormTitle>
+    </div>
     <md-card class="md-layout-item md-size-50 md-small-size-100 atForm">
       <md-card-content>
-        <Question :MaQuestion="Questions[0]"></Question>
+        <Question :MyQuestion="Questions[0]"></Question>
       </md-card-content>
       <md-card-actions>
         <router-link to="/questionnaire">
@@ -22,8 +25,8 @@ export default {
   data: () => ({
     Questions: [
       {
-        atName: "question 1",
-        atResponse: ["ma réponse1", "ma réponse 2", "ma réponse 3"],
+        atName: "Quelles sont les couleurs du drapeau italien",
+        atResponse: ["rouge-vert-banc", "noir-vert-blanc", "rouge-bleu-orange"],
         atCheck: [false, false, false]
       },
       {
@@ -39,8 +42,8 @@ export default {
     ]
   }),
   components: {
-    FormTitle,
-    Question
+    Question,
+    FormTitle
   }
 };
 </script>
