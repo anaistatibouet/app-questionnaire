@@ -1,24 +1,8 @@
 # app-questionnaire
 
-## Project setup
-```
-npm install
-```
+## 14 octobre 
+Mise en place du projet VueJS
+Intégrer le framework CSS au projet
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 15 octobre
+Créer le questionnaire et le composant Question
