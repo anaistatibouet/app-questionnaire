@@ -1,3 +1,4 @@
+<!-- 15/10 - Création du composant Vue qui boucle sur les réponses et qui récupère la valeur du check --> 
 <template>
   <div class="atFormQuestion">
     <md-checkbox

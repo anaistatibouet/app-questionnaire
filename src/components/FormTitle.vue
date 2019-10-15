@@ -1,3 +1,4 @@
+<!-- Création d'un titre -->
 <template>
   <div class="hello">
     <h1>{{ title }}</h1>
@@ -6,11 +7,11 @@
 
 <script>
 export default {
-  name: 'FormTitle',
+  name: "FormTitle",
   props: {
     title: String
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
