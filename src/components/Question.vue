@@ -5,6 +5,8 @@ L'objet MyQuestion permet de récupérer les données
 
 05/11 -
 J'intègre le bouton dans le composant Question
+Implémentation d'une méthode pour passer à la question suivante => on émet un évènement pour récupérer les datas
+de Questionnaire.vue
  -->
 <template>
   <div class="atFormQuestion">
@@ -19,7 +21,11 @@ J'intègre le bouton dans le composant Question
     >{{ value }}</md-checkbox>
     <md-card-actions>
       <router-link to="/questionnaire">
-        <md-button type="submit" class="md-raised md-primary">Question suivante</md-button>
+        <md-button
+          type="submit"
+          @click="atNextQuestion()"
+          class="md-raised md-primary"
+        >Question suivante</md-button>
       </router-link>
     </md-card-actions>
   </div>
@@ -27,14 +33,20 @@ J'intègre le bouton dans le composant Question
 
 <script>
 export default {
-  name: "Question",
-  data() {
+  name: 'Question',
+  data () {
     return {
       q: this.MyQuestion
-    };
+    }
   },
   props: {
-    MyQuestion: Object
+    MyQuestion: Object,
+    atDisplayQuestion: Number
+  },
+  methods: {
+    atNextQuestion: function () {
+      this.$emit('counterQuestion')
+    }
   }
-};
+}
 </script>
