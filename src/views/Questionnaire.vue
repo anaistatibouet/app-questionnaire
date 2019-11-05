@@ -4,39 +4,48 @@
     <div>
       <FormTitle title="Questionnaire"></FormTitle>
     </div>
+    <!-- 05/11 - Boucle sur les questions et les réponses grâce à un index -->
     <md-card class="md-layout-item md-size-50 md-small-size-100 atForm">
       <md-card-content>
-        <Question :MyQuestion="Questions[0]"></Question>
+        <Question
+          v-for="(ques, index) in Questions"
+          v-bind:key="ques.aId"
+          :MyQuestion="Questions[index]"
+        ></Question>
       </md-card-content>
-      <md-card-actions>
-        <router-link to="/questionnaire">
-          <md-button type="submit" class="md-raised md-primary">Question suivante</md-button>
-        </router-link>
-      </md-card-actions>
     </md-card>
   </div>
 </template>
 <script>
-import FormTitle from "@/components/FormTitle.vue";
-import Question from "@/components/Question.vue";
+import FormTitle from '@/components/FormTitle.vue'
+import Question from '@/components/Question.vue'
 
 export default {
-  name: "home",
+  name: 'home',
   data: () => ({
     Questions: [
       {
-        atName: "Quelles sont les couleurs du drapeau italien",
-        atResponse: ["rouge-vert-banc", "noir-vert-blanc", "rouge-bleu-orange"],
+        aId: 1,
+        atName: 'Oracle est cool',
+        atResponse: ['non', 'non', 'la réponse D'],
         atCheck: [false, false, false]
       },
       {
-        atName: "question 2",
-        atResponse: ["ma réponse1", "ma réponse 2"],
+        aId: 2,
+        atName: 'Question 2',
+        atResponse: ['ma réponse 1', 'ma réponse 2'],
         atCheck: [false, false]
       },
       {
-        atName: "question 3",
-        atResponse: ["ma réponse1", "ma réponse 3"],
+        aId: 3,
+        atName: 'question 3',
+        atResponse: ['ma réponse1', 'ma réponse 3'],
+        atCheck: [false, false]
+      },
+      {
+        aId: 4,
+        atName: 'question 4',
+        atResponse: ['ma réponse1', 'ma réponse 3'],
         atCheck: [false, false]
       }
     ]
@@ -45,7 +54,7 @@ export default {
     Question,
     FormTitle
   }
-};
+}
 </script>
 
 <style scoped lang="scss">

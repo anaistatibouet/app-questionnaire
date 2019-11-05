@@ -7,11 +7,11 @@
 
 <script>
 export default {
-  name: "FormTitle",
+  name: 'FormTitle',
   props: {
     title: String
   }
-};
+}
 </script>
 
 <style scoped lang="scss">
