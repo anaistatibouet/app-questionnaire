@@ -23,4 +23,5 @@ Questionnaire : ok
 ## 05 novembre
 **Objectif :**
 Naviguer entre les questions
+Calculer le résultat
 Implémenter la base de données
