@@ -23,7 +23,6 @@
 <script>
 import FormTitle from '@/components/FormTitle.vue'
 import Question from '@/components/Question.vue'
-import Footer from '@/components/Footer.vue'
 
 export default {
     name: 'home',
@@ -86,7 +85,6 @@ export default {
         ],
     }),
     components: {
-        Footer,
         Question,
         FormTitle,
     },

@@ -21,8 +21,6 @@ Affichage du résutat de l'utilisateur
 </template>
 
 <script>
-import Footer from '@/components/Footer.vue'
-
 export default {
     name: 'result',
     data: () => ({
@@ -32,9 +30,6 @@ export default {
     mounted() {
         this.atTotal = this.$route.query.atTotal
         this.atNbQuestion = this.$route.query.atNbQuestion
-    },
-    components: {
-        Footer,
     },
 }
 </script>
