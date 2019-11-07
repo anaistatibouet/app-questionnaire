@@ -10,7 +10,8 @@ de Questionnaire.vue
 Binding des réponses de l'utilisateur sur les checkbox. Cela permettra de calculer le résutltat du prestataire
 
 07/11
-Incrémentation des points si l'utilisateur a une réponse correcte. Affichage du résultat final dans un console log
+Incrémentation des points si l'utilisateur a une réponse correcte. 
+Affichage du résultat final dans un console log puis sur une page "result" avec une redirection à la fin du questionnaire
  -->
 <template>
     <div class="atFormQuestion">

@@ -8,19 +8,19 @@
                 <div class="md-layout-item md-small-size-100">
                     <md-field>
                         <label>Prénom</label>
-                        <md-input v-model="atFirstname"></md-input>
+                        <md-input v-model="atDataForm.atFirstname" required></md-input>
                     </md-field>
                 </div>
                 <div class="md-layout-item md-small-size-100">
                     <md-field>
                         <label>Nom</label>
-                        <md-input v-model="atLastname"></md-input>
+                        <md-input v-model="atDataForm.atLastname" required></md-input>
                     </md-field>
                 </div>
                 <div class="md-layout-item md-small-size-100">
                     <md-field>
                         <label>Société</label>
-                        <md-input v-model="atCompany"></md-input>
+                        <md-input v-model="atDataForm.atCompany" required></md-input>
                     </md-field>
                 </div>
             </md-card-content>
@@ -31,29 +31,37 @@
                 </router-link>
             </md-card-actions>
         </md-card>
+        <Footer></Footer>
     </div>
 </template>
 
 <script>
 import FormTitle from '@/components/FormTitle.vue'
+import Footer from '@/components/Footer.vue'
 
 export default {
     name: 'home',
-    data: () => ({
-        atLastname: null,
-        atFirstname: null,
-        atCompany: null,
-        maxLength: null,
-    }),
+    data() {
+        return {
+            atDataForm: {
+                atLastname: null,
+                atFirstname: null,
+                atCompany: null,
+                maxLength: null,
+                required: null,
+            },
+        }
+    },
     components: {
         FormTitle,
+        Footer,
     },
     methods: {
         atResetForm(evt) {
             evt.preventDefault()
-            this.atFirstname = null
-            this.atLastname = null
-            this.atCompany = null
+            this.atDataForm.atFirstname = ''
+            this.atDataForm.atLastname = ''
+            this.atDataForm.atCompany = ''
         },
     },
 }

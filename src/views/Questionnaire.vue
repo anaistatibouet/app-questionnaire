@@ -17,11 +17,13 @@
                 ></Question>
             </md-card-content>
         </md-card>
+        <Footer></Footer>
     </div>
 </template>
 <script>
 import FormTitle from '@/components/FormTitle.vue'
 import Question from '@/components/Question.vue'
+import Footer from '@/components/Footer.vue'
 
 export default {
     name: 'home',
@@ -32,39 +34,59 @@ export default {
         Questions: [
             {
                 atId: 1,
-                atName: 'Oracle est cool',
-                atResponse: ['non', 'NON', '♥ ♥'],
+                atName:
+                    'Parmis les éléments proposés, quels sont des frameworks',
+                atResponse: ['Symfony', 'PHP', 'VueJS', 'C#'],
+                atCheck: [false, false, false, false],
+                atUserAnswers: [false, false, false, false],
+                atCorrectAnswers: [true, false, true, false],
+            },
+            {
+                atId: 2,
+                atName: 'Quel est le pays natal de Wolfgang Amadeus Mozart ? ',
+                atResponse: ['Allemagne', 'Pologne', 'Autriche'],
+                atCheck: [false, false, false],
+                atUserAnswers: [false, false, false],
+                atCorrectAnswers: [false, false, true],
+            },
+            {
+                atId: 3,
+                atName:
+                    'Quel président des Etats-Unis a démissionné après le Watergate',
+                atResponse: ['Nixon', 'Obama', 'G.W. Bush'],
                 atCheck: [false, false, false],
                 atUserAnswers: [false, false, false],
                 atCorrectAnswers: [true, false, false],
             },
             {
-                atId: 2,
-                atName: 'Question 2',
-                atResponse: ['ma réponse 1', 'ma réponse 2'],
-                atCheck: [false, false],
-                atUserAnswers: [false, false],
-                atCorrectAnswers: [true, false],
-            },
-            {
-                atId: 3,
-                atName: 'question 3',
-                atResponse: ['ma réponse1', 'ma réponse 3'],
-                atCheck: [false, false],
-                atUserAnswers: [false, false],
-                atCorrectAnswers: [true, false],
-            },
-            {
                 atId: 4,
-                atName: 'question 4',
-                atResponse: ['ma réponse1', 'ma réponse 3'],
-                atCheck: [false, false],
-                atUserAnswers: [false, false],
-                atCorrectAnswers: [true, false],
+                atName: 'Le Joker incarné en 2008 est',
+                atResponse: [
+                    'Joaquin Phoenix',
+                    'Heath Ledger',
+                    'Jared Leto',
+                    'Jack Nicholson',
+                ],
+                atCheck: [false, false, false, false],
+                atUserAnswers: [false, false, false, false],
+                atCorrectAnswers: [false, true, false, false],
+            },
+            {
+                atId: 5,
+                atName: 'Quelle équipe a remporté la Stanley Cup en 2019',
+                atResponse: [
+                    'Blues de Saint-Louis',
+                    'Canadians de Montréal',
+                    'Bruins de Boston',
+                ],
+                atCheck: [false, false, false],
+                atUserAnswers: [false, false, false],
+                atCorrectAnswers: [true, false, false],
             },
         ],
     }),
     components: {
+        Footer,
         Question,
         FormTitle,
     },

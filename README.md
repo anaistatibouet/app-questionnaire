@@ -24,7 +24,7 @@ Questionnaire : ok <br>
 
 ## 05 novembre
 
-**Objectif :**
+**Objectifs :**
 Naviguer entre les questions <br>
 Récupérer les résultats de l'utilisateur
 
@@ -33,7 +33,7 @@ OK
 
 ## 07 novembre
 
-**Objectif :**
+**Objectifs :**
 Calculer le résultat <br>
 Afficher le résultat
 
