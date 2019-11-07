@@ -6,7 +6,7 @@ https://anaistatibouet.github.io/#/
 ## 14 octobre
 
 **Objectifs :**
-Mise en place du projet VueJS
+Mise en place du projet VueJS <br>
 Intégrer le framework CSS au projet
 
 **Avancement**
@@ -15,23 +15,30 @@ Fait
 ## 15 octobre
 
 **Objectifs :**
-Créer le questionnaire et le composant Question
+Créer le questionnaire et le composant Question <br>
 Gérer la navigation entre le 1er questionnaire et les Questions
 
 **Avancement**
-Questionnaire : ok
+Questionnaire : ok <br>
 1ère question implémentée
 
 ## 05 novembre
 
 **Objectif :**
-Naviguer entre les questions
+Naviguer entre les questions <br>
 Récupérer les résultats de l'utilisateur
+
+**Avancement**
+OK
 
 ## 07 novembre
 
-Calculer le résultat
+**Objectif :**
+Calculer le résultat <br>
 Afficher le résultat
+
+**Avancement**
+Ok
 
 ---
 
