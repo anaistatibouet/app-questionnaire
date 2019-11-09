@@ -33,7 +33,7 @@ body {
     height: 100%;
 }
 #nav {
-    padding: 30px;
+    padding-top: 30px;
     a {
         font-weight: bold;
         color: #2c3e50;

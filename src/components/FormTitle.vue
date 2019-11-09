@@ -1,7 +1,7 @@
 <!-- Création d'un titre -->
 <template>
     <div class="hello">
-        <h1>{{ title }}</h1>
+        <h1>{{ titleForm }}</h1>
     </div>
 </template>
 
@@ -9,7 +9,7 @@
 export default {
     name: 'FormTitle',
     props: {
-        title: String,
+        titleForm: String,
     },
 }
 </script>

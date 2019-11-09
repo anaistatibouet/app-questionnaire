@@ -5,8 +5,8 @@
             <FormTitle class="title" title="Questionnaire"></FormTitle>
         </div>
         <!-- 05/11 - Boucle sur les questions et les réponses grâce à un index
-    Appel au compteur qui se déclenche au clic
-    Récupération du résultat (test mis en place avec des console.log)
+        Appel au compteur qui se déclenche au clic
+        Récupération du résultat (test mis en place avec des console.log)
         -->
         <md-card class="md-layout-item md-size-50 md-small-size-100 atForm">
             <md-card-content>
@@ -34,11 +34,11 @@ export default {
             {
                 atId: 1,
                 atName:
-                    'Parmis les éléments proposés, quels sont des frameworks',
-                atResponse: ['Symfony', 'PHP', 'VueJS', 'C#'],
-                atCheck: [false, false, false, false],
-                atUserAnswers: [false, false, false, false],
-                atCorrectAnswers: [true, false, true, false],
+                    'Combien y a-t-il de miles marins dans un degré de latitude ?',
+                atResponse: ['90', '60', '180'],
+                atCheck: [false, false, false],
+                atUserAnswers: [false, false, false],
+                atCorrectAnswers: [false, true, false],
             },
             {
                 atId: 2,
@@ -82,6 +82,55 @@ export default {
                 atUserAnswers: [false, false, false],
                 atCorrectAnswers: [true, false, false],
             },
+            {
+                atId: 6,
+                atName:
+                    'Quel est le nom du principal indice boursier de la place de Paris ?',
+                atResponse: ['Le Dax', 'Le Nifty', 'Le CAC 40', 'Le Footsie'],
+                atCheck: [false, false, false, false],
+                atUserAnswers: [false, false, false, false],
+                atCorrectAnswers: [false, false, true, false],
+            },
+            {
+                atId: 7,
+                atName:
+                    'En quelle année, la Ve République est-elle entrée en vigueur en France ?',
+                atResponse: ['1945', '1958', '1980', '1789'],
+                atCheck: [false, false, false, false],
+                atUserAnswers: [false, false, false, false],
+                atCorrectAnswers: [false, true, false, false],
+            },
+            {
+                atId: 8,
+                atName:
+                    "En musique, qu'est ce qui permet de monter ou de baisser une note d'un demi-ton ?",
+                atResponse: [
+                    'le dièse',
+                    'une croche',
+                    'le bémole',
+                    'le silence',
+                ],
+                atCheck: [false, false, false, false],
+                atUserAnswers: [false, false, false, false],
+                atCorrectAnswers: [true, false, true, false],
+            },
+            {
+                atId: 9,
+                atName: "Dans quels pays, la monnaie courante est l'Euro",
+                atResponse: ['Portugal', 'Suède', 'Suisse', 'Belgique'],
+                atCheck: [false, false, false, false],
+                atUserAnswers: [false, false, false, false],
+                atCorrectAnswers: [true, false, false, true],
+            },
+            {
+                atId: 10,
+                atName:
+                    'Sur quelle plateforme SVOD est diffusée la série "Orange Is The New Black" ?',
+                atResponse: ['Canal+', 'Amazon Prime', 'Netflix', 'OCS'],
+                atCheck: [false, false, false, false],
+                atUserAnswers: [false, false, false, false],
+                atCorrectAnswers: [false, false, true, false],
+            },
         ],
     }),
     components: {
@@ -100,22 +149,16 @@ export default {
             } else {
                 console.log('mauvaise reponse')
             }
-            console.log(this.Questions[this.atDisplay].atUserAnswers)
             this.atNextQuestion()
-            console.log(this.atResult)
         },
         atNextQuestion: function() {
+            // 09/11 - Passage à la question suivante
             var atLengthTab = this.Questions.length
             if (this.atDisplay < atLengthTab - 1) {
                 this.atDisplay++
                 this.atQuestion = this.Questions[this.atDisplay]
             } else {
-                console.log(
-                    'Votre résultat est ' +
-                        this.atResult +
-                        ' sur ' +
-                        atLengthTab
-                )
+                // 09/11 - Redirection vers la page de résultat
                 this.$router.push({
                     name: 'result',
                     query: {

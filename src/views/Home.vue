@@ -3,7 +3,7 @@
         <img src="../assets/question.png" alt />
         <md-card class="md-layout-item md-size-50 md-small-size-100 atForm">
             <md-card-header>
-                <FormTitle title="Informations personnelles" />
+                <FormTitle titleForm="Informations personnelles" />
             </md-card-header>
             <md-card-content>
                 <div class="md-layout-item md-small-size-100">
@@ -27,9 +27,7 @@
             </md-card-content>
             <md-card-actions>
                 <md-button @click="atResetForm" class="md-raised md-accent">Réinitialiser</md-button>
-                <router-link to="/questionnaire" class="atStart">
-                    <md-button @click="atSubmitForm" class="md-raised md-primary">Commencer le test</md-button>
-                </router-link>
+                <md-button @click="atSubmitForm" class="md-raised md-primary">Commencer le test</md-button>
             </md-card-actions>
         </md-card>
         <!-- <Footer></Footer> -->
@@ -39,10 +37,8 @@
 <script>
 import PouchDB from 'pouchdb'
 var db = new PouchDB('atDbQuestionnaire')
-db.replicate.to('http://127.0.0.1:5984/atDbQuestionnaire')
 
 import FormTitle from '@/components/FormTitle.vue'
-// import Footer from '@/components/Footer.vue'
 
 export default {
     name: 'home',
@@ -61,7 +57,11 @@ export default {
         FormTitle,
     },
     methods: {
-        atSubmitForm(evt) {},
+        atSubmitForm(evt) {
+            this.$router.push({
+                name: 'questionnaire',
+            })
+        },
         atResetForm(evt) {
             evt.preventDefault()
             this.atDataForm.atFirstname = ''

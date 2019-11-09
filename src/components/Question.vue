@@ -15,9 +15,9 @@ Affichage du résultat final dans un console log puis sur une page "result" avec
  -->
 <template>
     <div class="atFormQuestion">
-        <md-header>
-            <h2 class="title">{{q.atName}}</h2>
-        </md-header>
+        <div>
+            <p>{{q.atName}}</p>
+        </div>
         <md-checkbox
             class="md-primary answer"
             v-model="q.atUserAnswers[index]"
@@ -25,13 +25,11 @@ Affichage du résultat final dans un console log puis sur une page "result" avec
             v-bind:key="value"
         >{{ value }}</md-checkbox>
         <md-card-actions>
-            <router-link to="/questionnaire">
-                <md-button
-                    type="submit"
-                    @click="atNextQuestion()"
-                    class="md-raised md-primary"
-                >Question suivante</md-button>
-            </router-link>
+            <md-button
+                type="submit"
+                @click="atNextQuestion()"
+                class="md-raised md-primary"
+            >Question suivante</md-button>
         </md-card-actions>
     </div>
 </template>
@@ -56,7 +54,9 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-.title {
+p {
+    font-weight: bold;
+    font-size: 15px;
     position: relative;
     top: -80px;
     padding: 30px 0;

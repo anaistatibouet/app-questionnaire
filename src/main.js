@@ -10,6 +10,9 @@ import 'vue-material/dist/vue-material.css'
 Vue.use(VueMaterial)
 Vue.config.productionTip = false
 
+// 09 novembre
+// Ajout de PouchDB qui permettra d'enregistrer les informations en base de données
+
 new Vue({
     router,
     render: h => h(App),

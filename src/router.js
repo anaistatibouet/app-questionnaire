@@ -4,6 +4,9 @@ import Home from './views/Home.vue'
 
 Vue.use(Router)
 
+// 09/11
+// Définition des routes qui permettent de naviguer entre les différentes pages du projet
+
 export default new Router({
     routes: [
         {
