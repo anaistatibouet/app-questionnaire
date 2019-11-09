@@ -35,9 +35,6 @@
 </template>
 
 <script>
-import PouchDB from 'pouchdb'
-var db = new PouchDB('atDbQuestionnaire')
-
 import FormTitle from '@/components/FormTitle.vue'
 
 export default {

@@ -2,7 +2,7 @@
 <template>
     <div class="questionnaire">
         <div>
-            <FormTitle class="title" title="Questionnaire"></FormTitle>
+            <FormTitle class="title" titleForm="Questionnaire"></FormTitle>
         </div>
         <!-- 05/11 - Boucle sur les questions et les réponses grâce à un index
         Appel au compteur qui se déclenche au clic
@@ -17,12 +17,14 @@
                 ></Question>
             </md-card-content>
         </md-card>
+        <ReturnToHome></ReturnToHome>
         <Footer></Footer>
     </div>
 </template>
 <script>
 import FormTitle from '@/components/FormTitle.vue'
 import Question from '@/components/Question.vue'
+import ReturnToHome from '@/components/ReturnToHome.vue'
 
 export default {
     name: 'home',
@@ -136,6 +138,7 @@ export default {
     components: {
         Question,
         FormTitle,
+        ReturnToHome,
     },
     // Méthode qui permet d'incrémenter l'index des questions
     methods: {
