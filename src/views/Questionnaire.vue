@@ -24,8 +24,8 @@
 <script>
 import FormTitle from '@/components/FormTitle.vue'
 // 10/11 - Les composants relatifs aux questions
-import Question from '@/components/Question.vue'
 import PoolQuestions from '../json/poolQuestions.json'
+import Question from '@/components/Question.vue'
 // 10/11 - Composant qui contient Bouton retour à l'accueil
 import ReturnToHome from '@/components/ReturnToHome.vue'
 

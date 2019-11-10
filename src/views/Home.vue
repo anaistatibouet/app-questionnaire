@@ -28,7 +28,11 @@
             <md-button @click="atResetForm" class="md-raised md-accent">Réinitialiser</md-button>
             <md-button @click="atAddUserDb" class="md-raised md-primary">Commencer le test</md-button>
         </md-card>
-        <div id="error"></div>
+        <md-dialog-alert
+            :md-active.sync="error"
+            md-content="Entrez vos informations"
+            md-confirm-text="J'ai compris"
+        />
     </div>
 </template>
 
@@ -46,6 +50,7 @@ export default {
                 maxLength: null,
                 required: true,
             },
+            error: false,
         }
     },
     components: {
@@ -66,8 +71,8 @@ export default {
                 atCompany: this.atDataForm.atCompany,
             }
             if (
-                this.atDataForm.atFirstname != null ||
-                this.atDataForm.atLastname != null ||
+                this.atDataForm.atFirstname != null &&
+                this.atDataForm.atLastname != null &&
                 this.atDataForm.atCompany != null
             ) {
                 this.$atSurveryDb.put(atUser, function callback(err, result) {
@@ -78,6 +83,8 @@ export default {
                 this.$router.push({
                     name: 'questionnaire',
                 })
+            } else {
+                this.error = true
             }
         },
     },

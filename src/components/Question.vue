@@ -27,7 +27,7 @@ Affichage du résultat final dans un console log puis sur une page "result" avec
         <div>
             <md-button
                 type="submit"
-                @click="atNextQuestion"
+                @click="atNextQuestion()"
                 class="md-raised md-primary"
             >Question suivante</md-button>
         </div>
