@@ -54,10 +54,10 @@ export default {
                 })
         },
         deleteUser: function(atUsersId) {
-            var that = this
+            var vm = this
             this.$atSurveryDb.get(atUsersId).then(function(doc) {
-                that.$atSurveryDb.remove(doc)
-                that.getUsers()
+                vm.$atSurveryDb.remove(doc)
+                vm.getUsers()
             })
         },
     },

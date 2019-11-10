@@ -65,16 +65,20 @@ export default {
                 atLastname: this.atDataForm.atLastname,
                 atCompany: this.atDataForm.atCompany,
             }
-            console.log(atUser)
-            this.$atSurveryDb.put(atUser, function callback(err, result) {
-                if (!err) {
-                    console.log('Successfully inserted in database')
-                }
-            })
-            console.log(JSON.stringify(this.atDataForm.atFirstname))
-            this.$router.push({
-                name: 'questionnaire',
-            })
+            if (
+                this.atDataForm.atFirstname != null ||
+                this.atDataForm.atLastname != null ||
+                this.atDataForm.atCompany != null
+            ) {
+                this.$atSurveryDb.put(atUser, function callback(err, result) {
+                    if (!err) {
+                        console.log('Successfully inserted in database')
+                    }
+                })
+                this.$router.push({
+                    name: 'questionnaire',
+                })
+            }
         },
     },
 }
