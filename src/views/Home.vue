@@ -28,7 +28,7 @@
             <md-button @click="atResetForm" class="md-raised md-accent">Réinitialiser</md-button>
             <md-button @click="atAddUserDb" class="md-raised md-primary">Commencer le test</md-button>
         </md-card>
-        <!-- <Footer></Footer> -->
+        <div id="error"></div>
     </div>
 </template>
 
