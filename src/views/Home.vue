@@ -28,6 +28,7 @@
             <md-button @click="atResetForm" class="md-raised md-accent">Réinitialiser</md-button>
             <md-button @click="atAddUserDb" class="md-raised md-primary">Commencer le test</md-button>
         </md-card>
+        <!-- 10/11 Permet d'avertir l'utilisateur qu'il faut entrer des informations et évite les erreurs en BDD  -->
         <md-dialog-alert
             :md-active.sync="error"
             md-content="Entrez vos informations"
@@ -57,12 +58,14 @@ export default {
         FormTitle,
     },
     methods: {
+        // 10/11 - Fonction qui permet à l'utilisateur d'effacer ces infos et recommencer
         atResetForm(evt) {
             evt.preventDefault()
             this.atDataForm.atFirstname = ''
             this.atDataForm.atLastname = ''
             this.atDataForm.atCompany = ''
         },
+        // 10/11 - Fonction qui permet d'ajouter un utilisateur en BDD
         atAddUserDb: function() {
             var atUser = {
                 _id: new Date().toISOString(),
@@ -70,6 +73,7 @@ export default {
                 atLastname: this.atDataForm.atLastname,
                 atCompany: this.atDataForm.atCompany,
             }
+            // 10/11 - Permet d'éviter d'entrer des données vides en BDD
             if (
                 this.atDataForm.atFirstname != null &&
                 this.atDataForm.atLastname != null &&

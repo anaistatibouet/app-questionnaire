@@ -8,7 +8,6 @@
                 style="text-align: left;"
                 class="md-layout-item md-size-50"
             >
-                <!-- Idée de suppression d'un utilisateur vient de Jules PEGUET -->
                 <md-table-row slot="md-table-row" slot-scope="{ item }">
                     <md-table-cell md-label="ID">{{ item.doc._id }}</md-table-cell>
                     <md-table-cell md-label="Prénom" class="cap">{{ item.doc.atFirstname }}</md-table-cell>
@@ -52,13 +51,13 @@ export default {
         FormTitle,
     },
     methods: {
+        // 10/11 - Fonction qui retourne la liste de tous les utilisateurs en BDD
         atGetUsers: function() {
             var vm = this
             this.$atSurveryDb
                 .allDocs({ include_docs: true, attachments: true })
                 .then(function(result) {
                     console.log(result)
-                    // 10/11 - renvoie tous les prestataires de la BDD
                     vm.atUsers = result
                     console.log(vm.atUsers)
                 })
@@ -66,10 +65,12 @@ export default {
                     console.log(err)
                 })
         },
+        // 10/11 - Fonction qui permet de supprimer un utilisateur
         atDeleteUser: function(atUsersId) {
             var vm = this
             this.$atSurveryDb.get(atUsersId).then(function(doc) {
                 vm.$atSurveryDb.remove(doc)
+                // 10/11 On retourne la liste pour rafraîchir le tableau
                 vm.atGetUsers()
             })
         },
