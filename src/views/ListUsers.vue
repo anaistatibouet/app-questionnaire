@@ -91,4 +91,7 @@ export default {
 .cap {
     text-transform: capitalize;
 }
+#listUser {
+    overflow: auto;
+}
 </style>

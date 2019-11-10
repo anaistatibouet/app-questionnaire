@@ -6,13 +6,31 @@ Affichage du résutat de l'utilisateur
 -->
 <template>
     <div>
-        <div v-if="atTotal > atNbQuestion/2" class="title title-green">Résultat du questionnaire</div>
-        <div v-else class="title title-red">Résultat du questionnaire</div>
-        <md-card class="cardResult">
-            <md-content>
-                <p class="Result">{{atTotal}} sur {{atNbQuestion}}</p>
-            </md-content>
-        </md-card>
+        <div v-show="!atDetails">
+            <div v-if="atTotal > atNbQuestion/2" class="title title-green">Résultat du questionnaire</div>
+            <div v-else class="title title-red">Résultat du questionnaire</div>
+            <md-card class="cardResult">
+                <md-content>
+                    <p class="Result">{{atTotal}} sur {{atNbQuestion}}</p>
+                </md-content>
+            </md-card>
+        </div>
+        <div v-show="atDetails">
+            <h2>Détails du résultat</h2>
+            <md-card class="cardResultDetails">
+                <md-content>
+                    <div v-for="(item, index) in atatTab" :key="index">
+                        <p class="detail">
+                            <b>Question {{index + 1}} :</b>
+                        </p>
+                        <p class="detail green" v-if="item == 'Réponse correcte'">{{item}}</p>
+                        <p class="detail red" v-if="item == 'Mauvaise réponse'">{{item}}</p>
+                    </div>
+                </md-content>
+            </md-card>
+        </div>
+        <md-button @click="atDisplayDetails" v-show="!atDetails">Détails du résultat</md-button>
+        <md-button @click="atDisplayResult" v-show="atDetails">Résultat</md-button>
         <router-link to="/">
             <md-button class="md-raised md-primary">Accueil</md-button>
         </router-link>
@@ -21,15 +39,36 @@ Affichage du résutat de l'utilisateur
 </template>
 
 <script>
+import Footer from '@/components/Footer.vue'
+import PoolQuestions from '../json/poolQuestions.json'
+
 export default {
     name: 'result',
     data: () => ({
         atTotal: Number,
         atNbQuestion: Number,
+        atatTab: [],
+        atDetails: false,
+        Question: PoolQuestions,
     }),
+    components: {
+        Footer,
+    },
+    methods: {
+        atTest: function() {
+            console.log(JSON.stringify(this.Question))
+        },
+        atDisplayDetails: function() {
+            this.atDetails = true
+        },
+        atDisplayResult: function() {
+            this.atDetails = false
+        },
+    },
     mounted() {
         this.atTotal = this.$route.query.atTotal
         this.atNbQuestion = this.$route.query.atNbQuestion
+        this.atatTab = this.$route.query.atTab
     },
 }
 </script>
@@ -63,5 +102,24 @@ export default {
     padding: 50px 10px 30px;
     font-size: 30px;
     border-radius: 10px;
+}
+.cardResultDetails {
+    margin: 0 400px 50px;
+    padding: 50px 10px 30px;
+    font-size: 12;
+    border-radius: 10px;
+}
+.detail {
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 0;
+}
+.green {
+    margin-right: 2px;
+    color: #43a047;
+}
+.red {
+    margin-right: 2px;
+    color: #e53935;
 }
 </style>

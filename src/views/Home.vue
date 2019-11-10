@@ -34,10 +34,12 @@
             md-content="Entrez vos informations"
             md-confirm-text="J'ai compris"
         />
+        <Footer></Footer>
     </div>
 </template>
 
 <script>
+import Footer from '@/components/Footer.vue'
 import FormTitle from '@/components/FormTitle.vue'
 
 export default {
@@ -56,6 +58,7 @@ export default {
     },
     components: {
         FormTitle,
+        Footer,
     },
     methods: {
         // 10/11 - Fonction qui permet à l'utilisateur d'effacer ces infos et recommencer
