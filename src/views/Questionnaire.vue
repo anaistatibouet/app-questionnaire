@@ -58,7 +58,7 @@ export default {
         },
         atNextQuestion: function() {
             var atLengthTab = this.Questions.length
-            // // 09/11 - Test Random Question
+            // // 09/11 - Test Random Question mais ça marche pas
             // var randomItem = this.Questions[
             //     Math.floor(Math.random() * this.Questions.length)
             // ]

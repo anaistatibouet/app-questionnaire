@@ -8,11 +8,20 @@
                 style="text-align: left;"
                 class="md-layout-item md-size-50"
             >
+                <!-- Idée de suppression d'un utilisateur vient de Jules PEGUET -->
                 <md-table-row slot="md-table-row" slot-scope="{ item }">
                     <md-table-cell md-label="ID">{{ item.doc._id }}</md-table-cell>
                     <md-table-cell md-label="Prénom" class="cap">{{ item.doc.atFirstname }}</md-table-cell>
-                    <md-table-cell md-label="Nom">{{ item.doc.atLastName.toUpperCase() }}</md-table-cell>
+                    <md-table-cell md-label="Nom">{{ item.doc.atLastname.toUpperCase() }}</md-table-cell>
                     <md-table-cell md-label="Société" class="cap">{{ item.doc.atCompany }}</md-table-cell>
+                    <md-table-cell md-label="Supprimer">
+                        <md-button
+                            @click="deleteUser(item.id)"
+                            class="md-icon-button md-raised md-accent"
+                        >
+                            <md-icon>delete_outline</md-icon>
+                        </md-button>
+                    </md-table-cell>
                 </md-table-row>
             </md-table>
         </div>
@@ -44,6 +53,13 @@ export default {
                     console.log(err)
                 })
         },
+        deleteUser: function(atUsersId) {
+            var that = this
+            this.$atSurveryDb.get(atUsersId).then(function(doc) {
+                that.$atSurveryDb.remove(doc)
+                that.getUsers()
+            })
+        },
     },
     created() {
         // 10/11 - Permet de récupérer les prestataires
@@ -53,7 +69,7 @@ export default {
 </script>
 <style scoped lang="scss">
 .title {
-    margin-bottom: 40px;
+    margin: 40px;
 }
 .cap {
     text-transform: capitalize;

@@ -62,7 +62,7 @@ export default {
             var atUser = {
                 _id: new Date().toISOString(),
                 atFirstname: this.atDataForm.atFirstname,
-                atLastName: this.atDataForm.atLastname,
+                atLastname: this.atDataForm.atLastname,
                 atCompany: this.atDataForm.atCompany,
             }
             console.log(atUser)

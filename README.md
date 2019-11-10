@@ -55,7 +55,7 @@ Créer le fichier PoolQuestions.json : KO car pb avec les checkbox
 ## 10 novembre
 
 **Objectifs :**
-Régler le pb avec les check
+Régler le pb avec les check <br>
 Afficher la liste de tous les utilisateurs
 
 ---
