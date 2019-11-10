@@ -8,6 +8,9 @@
         Appel au compteur qui se déclenche au clic
         Récupération du résultat (test mis en place avec des console.log)
         -->
+        <div>
+            <p>{{}}</p>
+        </div>
         <md-card class="md-layout-item md-size-50 md-small-size-100 atForm">
             <md-card-content>
                 <Question
@@ -23,7 +26,10 @@
 </template>
 <script>
 import FormTitle from '@/components/FormTitle.vue'
+// 10/11 - Les composants relatifs aux questions
 import Question from '@/components/Question.vue'
+import PoolQuestions from '../json/poolQuestions.json'
+// 10/11 - Composant qui contient Bouton retour à l'accueil
 import ReturnToHome from '@/components/ReturnToHome.vue'
 
 export default {
@@ -32,108 +38,7 @@ export default {
         atResult: 0,
         atDisplay: -1,
         atQuestion: Object,
-        Questions: [
-            {
-                atId: 1,
-                atName:
-                    'Combien y a-t-il de miles marins dans un degré de latitude ?',
-                atResponse: ['90', '60', '180'],
-                atCheck: [false, false, false],
-                atUserAnswers: [false, false, false],
-                atCorrectAnswers: [false, true, false],
-            },
-            {
-                atId: 2,
-                atName: 'Quel est le pays natal de Wolfgang Amadeus Mozart ? ',
-                atResponse: ['Allemagne', 'Pologne', 'Autriche'],
-                atCheck: [false, false, false],
-                atUserAnswers: [false, false, false],
-                atCorrectAnswers: [false, false, true],
-            },
-            {
-                atId: 3,
-                atName:
-                    'Quel président des Etats-Unis a démissionné après le Watergate',
-                atResponse: ['Nixon', 'Obama', 'G.W. Bush'],
-                atCheck: [false, false, false],
-                atUserAnswers: [false, false, false],
-                atCorrectAnswers: [true, false, false],
-            },
-            {
-                atId: 4,
-                atName: 'Le Joker incarné en 2008 est',
-                atResponse: [
-                    'Joaquin Phoenix',
-                    'Heath Ledger',
-                    'Jared Leto',
-                    'Jack Nicholson',
-                ],
-                atCheck: [false, false, false, false],
-                atUserAnswers: [false, false, false, false],
-                atCorrectAnswers: [false, true, false, false],
-            },
-            {
-                atId: 5,
-                atName: 'Quelle équipe a remporté la Stanley Cup en 2019',
-                atResponse: [
-                    'Blues de Saint-Louis',
-                    'Canadians de Montréal',
-                    'Bruins de Boston',
-                ],
-                atCheck: [false, false, false],
-                atUserAnswers: [false, false, false],
-                atCorrectAnswers: [true, false, false],
-            },
-            {
-                atId: 6,
-                atName:
-                    'Quel est le nom du principal indice boursier de la place de Paris ?',
-                atResponse: ['Le Dax', 'Le Nifty', 'Le CAC 40', 'Le Footsie'],
-                atCheck: [false, false, false, false],
-                atUserAnswers: [false, false, false, false],
-                atCorrectAnswers: [false, false, true, false],
-            },
-            {
-                atId: 7,
-                atName:
-                    'En quelle année, la Ve République est-elle entrée en vigueur en France ?',
-                atResponse: ['1945', '1958', '1980', '1789'],
-                atCheck: [false, false, false, false],
-                atUserAnswers: [false, false, false, false],
-                atCorrectAnswers: [false, true, false, false],
-            },
-            {
-                atId: 8,
-                atName:
-                    "En musique, qu'est ce qui permet de monter ou de baisser une note d'un demi-ton ?",
-                atResponse: [
-                    'le dièse',
-                    'une croche',
-                    'le bémole',
-                    'le silence',
-                ],
-                atCheck: [false, false, false, false],
-                atUserAnswers: [false, false, false, false],
-                atCorrectAnswers: [true, false, true, false],
-            },
-            {
-                atId: 9,
-                atName: "Dans quels pays, la monnaie courante est l'Euro",
-                atResponse: ['Portugal', 'Suède', 'Suisse', 'Belgique'],
-                atCheck: [false, false, false, false],
-                atUserAnswers: [false, false, false, false],
-                atCorrectAnswers: [true, false, false, true],
-            },
-            {
-                atId: 10,
-                atName:
-                    'Sur quelle plateforme SVOD est diffusée la série "Orange Is The New Black" ?',
-                atResponse: ['Canal+', 'Amazon Prime', 'Netflix', 'OCS'],
-                atCheck: [false, false, false, false],
-                atUserAnswers: [false, false, false, false],
-                atCorrectAnswers: [false, false, true, false],
-            },
-        ],
+        Questions: PoolQuestions,
     }),
     components: {
         Question,
@@ -184,6 +89,6 @@ export default {
     padding: 10px 50px;
 }
 .title {
-    margin-bottom: 100px;
+    margin: 30px 0 100px;
 }
 </style>

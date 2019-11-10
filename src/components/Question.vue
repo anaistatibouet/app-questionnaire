@@ -24,13 +24,13 @@ Affichage du résultat final dans un console log puis sur une page "result" avec
             v-for="(value, index) in q.atResponse"
             v-bind:key="value"
         >{{ value }}</md-checkbox>
-        <md-card-actions>
+        <div>
             <md-button
                 type="submit"
                 @click="atNextQuestion()"
                 class="md-raised md-primary"
             >Question suivante</md-button>
-        </md-card-actions>
+        </div>
     </div>
 </template>
 
@@ -49,6 +49,7 @@ export default {
     methods: {
         atNextQuestion: function() {
             this.$emit('counterQuestion')
+            console.log(this.$fromage)
         },
     },
 }

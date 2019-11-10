@@ -25,10 +25,8 @@
                     </md-field>
                 </div>
             </md-card-content>
-            <md-card-actions>
-                <md-button @click="atResetForm" class="md-raised md-accent">Réinitialiser</md-button>
-                <md-button @click="atSubmitForm" class="md-raised md-primary">Commencer le test</md-button>
-            </md-card-actions>
+            <md-button @click="atResetForm" class="md-raised md-accent">Réinitialiser</md-button>
+            <md-button @click="atAddUserDb" class="md-raised md-primary">Commencer le test</md-button>
         </md-card>
         <!-- <Footer></Footer> -->
     </div>
@@ -54,16 +52,29 @@ export default {
         FormTitle,
     },
     methods: {
-        atSubmitForm(evt) {
-            this.$router.push({
-                name: 'questionnaire',
-            })
-        },
         atResetForm(evt) {
             evt.preventDefault()
             this.atDataForm.atFirstname = ''
             this.atDataForm.atLastname = ''
             this.atDataForm.atCompany = ''
+        },
+        atAddUserDb: function() {
+            var atUser = {
+                _id: new Date().toISOString(),
+                atFirstname: this.atDataForm.atFirstname,
+                atLastName: this.atDataForm.atLastname,
+                atCompany: this.atDataForm.atCompany,
+            }
+            console.log(atUser)
+            this.$atSurveryDb.put(atUser, function callback(err, result) {
+                if (!err) {
+                    console.log('Successfully inserted in database')
+                }
+            })
+            console.log(JSON.stringify(this.atDataForm.atFirstname))
+            this.$router.push({
+                name: 'questionnaire',
+            })
         },
     },
 }

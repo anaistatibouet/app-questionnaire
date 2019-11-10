@@ -13,7 +13,9 @@ Vue.config.productionTip = false
 // 09 novembre
 // Ajout de PouchDB qui permettra d'enregistrer les informations en base de données
 import PouchDB from 'pouchdb'
-var db = new PouchDB('atDbQuestionnaire')
+Vue.prototype.$atSurveryDb = new PouchDB('atDataBase')
+
+var fromage = true
 
 new Vue({
     router,
