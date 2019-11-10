@@ -8,9 +8,6 @@
         Appel au compteur qui se déclenche au clic
         Récupération du résultat (test mis en place avec des console.log)
         -->
-        <div>
-            <p>{{}}</p>
-        </div>
         <md-card class="md-layout-item md-size-50 md-small-size-100 atForm">
             <md-card-content>
                 <Question
@@ -60,8 +57,14 @@ export default {
             this.atNextQuestion()
         },
         atNextQuestion: function() {
-            // 09/11 - Passage à la question suivante
             var atLengthTab = this.Questions.length
+            // 09/11 - Test Random Question
+            var randomItem = this.Questions[
+                Math.floor(Math.random() * this.Questions.length)
+            ]
+            console.log(randomItem)
+
+            // 09/11 - Passage à la question suivante
             if (this.atDisplay < atLengthTab - 1) {
                 this.atDisplay++
                 this.atQuestion = this.Questions[this.atDisplay]
