@@ -82,7 +82,7 @@ export default {
 
 <style scoped lang="scss">
 .atForm {
-    margin: 20px auto;
+    margin: 100px auto;
     padding: 10px 50px;
 }
 .atStart {
@@ -90,7 +90,7 @@ export default {
 }
 img {
     position: absolute;
-    top: 220px;
+    top: 200px;
     left: 80px;
     width: 250px;
 }

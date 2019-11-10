@@ -58,11 +58,11 @@ export default {
         },
         atNextQuestion: function() {
             var atLengthTab = this.Questions.length
-            // 09/11 - Test Random Question
-            var randomItem = this.Questions[
-                Math.floor(Math.random() * this.Questions.length)
-            ]
-            console.log(randomItem)
+            // // 09/11 - Test Random Question
+            // var randomItem = this.Questions[
+            //     Math.floor(Math.random() * this.Questions.length)
+            // ]
+            // console.log(randomItem)
 
             // 09/11 - Passage à la question suivante
             if (this.atDisplay < atLengthTab - 1) {

@@ -40,6 +40,24 @@ Afficher le résultat
 **Avancement**
 Ok
 
+## 09 Novembre
+
+**Objectifs :**
+Installer et importer PouchDB <br>
+Régler les problèmes d'affichage <br>
+Créer le fichier PoolQuestions.json <br>
+Faire la fonction d'ajout d'utilisateur
+
+**Avancement**
+pouchDb + ajout utilisateur : Ok
+Créer le fichier PoolQuestions.json : KO car pb avec les checkbox
+
+## 10 novembre
+
+**Objectifs :**
+Régler le pb avec les check
+Afficher la liste de tous les utilisateurs
+
 ---
 
 ## Project setup

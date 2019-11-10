@@ -24,5 +24,10 @@ export default new Router({
             name: 'questionnaire',
             component: () => import('./views/Questionnaire.vue'),
         },
+        {
+            path: '/listUsers',
+            name: 'listUsers',
+            component: () => import('./views/ListUsers.vue'),
+        },
     ],
 })

@@ -1,16 +1,19 @@
 <template>
     <div id="app">
-        <div id="nav">
-            <h1>EEV SAS</h1>
-            <router-link to="/">Prestataire</router-link>|
-            <router-link to="/administrateur">Adminitrateur</router-link>
+        <div id="top">
+            <md-toolbar :md-elevation="1" id="nav">
+                <h1>EEV SAS</h1>
+                <router-link to="/">Accueil</router-link>
+                <router-link to="/listUsers">Liste Prestataires&nbsp;</router-link>
+                <router-link to="/administrateur">Administrateur&nbsp;</router-link>
+            </md-toolbar>
         </div>
         <div id="footer">
-            <p>Réalisé par Anaïs TATIBOUËT</p>
+            <p>Réalisé par Anaïs TATIBOUËT - B3 Classe 2 DEV</p>
             <p>
                 <b>TP App Questionnaire</b>
             </p>
-            <p>B3 Classe 2 DEV - 2019</p>
+            <p>Contributeurs : Jules PEGUET</p>
         </div>
         <router-view />
     </div>
@@ -33,7 +36,6 @@ body {
     height: 100%;
 }
 #nav {
-    padding-top: 30px;
     a {
         font-weight: bold;
         color: #2c3e50;
@@ -41,6 +43,8 @@ body {
             color: #ffae00;
         }
     }
+    display: flex;
+    justify-content: space-between;
 }
 #footer {
     position: absolute;
