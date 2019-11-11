@@ -18,12 +18,14 @@ Affichage du résultat final dans un console log puis sur une page "result" avec
         <div>
             <p>{{q.atName}}</p>
         </div>
-        <md-checkbox
-            class="md-primary answer"
-            v-model="q.atUserAnswers[index]"
-            v-for="(value, index) in q.atResponse"
-            v-bind:key="value"
-        >{{ value }}</md-checkbox>
+        <div class="answer">
+            <md-checkbox
+                class="md-primary"
+                v-model="q.atUserAnswers[index]"
+                v-for="(value, index) in q.atResponse"
+                v-bind:key="value"
+            >{{ value }}</md-checkbox>
+        </div>
         <div>
             <md-button
                 type="submit"

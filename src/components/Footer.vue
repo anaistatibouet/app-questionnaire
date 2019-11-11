@@ -27,4 +27,9 @@ export default {
     color: white;
     justify-content: space-between;
 }
+@media screen and (max-width: 640px) {
+    #footer {
+        display: none;
+    }
+}
 </style>

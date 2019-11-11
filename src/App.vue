@@ -24,7 +24,6 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow: auto;
 }
 #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -48,5 +47,15 @@ body {
     }
     display: flex;
     justify-content: space-between;
+}
+@media screen and (max-width: 640px) {
+    #nav {
+        display: block;
+        a {
+            display: block;
+            margin: 20px;
+        }
+        padding-bottom: 20px;
+    }
 }
 </style>

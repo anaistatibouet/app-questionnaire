@@ -49,7 +49,7 @@ Créer le fichier PoolQuestions.json <br>
 Faire la fonction d'ajout d'utilisateur
 
 **Avancement**
-pouchDb + ajout utilisateur : Ok
+pouchDb + ajout utilisateur : Ok<br>
 Créer le fichier PoolQuestions.json : KO car pb avec les checkbox
 
 ## 10 novembre

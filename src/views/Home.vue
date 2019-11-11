@@ -42,6 +42,9 @@
 import Footer from '@/components/Footer.vue'
 import FormTitle from '@/components/FormTitle.vue'
 
+var moment = require('moment')
+moment.locale('fr')
+
 export default {
     name: 'home',
     data() {
@@ -72,6 +75,7 @@ export default {
         atAddUserDb: function() {
             var atUser = {
                 _id: new Date().toISOString(),
+                atDate: moment().format('LLL'),
                 atFirstname: this.atDataForm.atFirstname,
                 atLastname: this.atDataForm.atLastname,
                 atCompany: this.atDataForm.atCompany,
@@ -88,7 +92,7 @@ export default {
                     }
                 })
                 this.$router.push({
-                    name: 'questionnaire',
+                    name: 'choice',
                 })
             } else {
                 this.error = true
@@ -111,5 +115,15 @@ img {
     top: 200px;
     left: 80px;
     width: 250px;
+}
+@media screen and (max-width: 640px) {
+    .atForm {
+        text-align: center;
+        margin: 20px auto;
+        padding: 10px 50px;
+    }
+    img {
+        display: none;
+    }
 }
 </style>

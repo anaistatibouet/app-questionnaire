@@ -6,10 +6,10 @@
                 v-model="atUsers.rows"
                 md-card
                 style="text-align: left;"
-                class="md-layout-item md-size-50"
+                class="md-layout-item md-size-50 md-small-size-100"
             >
                 <md-table-row slot="md-table-row" slot-scope="{ item }">
-                    <md-table-cell md-label="ID">{{ item.doc._id }}</md-table-cell>
+                    <md-table-cell md-label="Date">{{ item.doc.atDate}}</md-table-cell>
                     <md-table-cell md-label="Prénom" class="cap">{{ item.doc.atFirstname }}</md-table-cell>
                     <md-table-cell md-label="Nom">{{ item.doc.atLastname.toUpperCase() }}</md-table-cell>
                     <md-table-cell md-label="Société" class="cap">{{ item.doc.atCompany }}</md-table-cell>
@@ -34,6 +34,9 @@
                     </md-table-cell>
                 </md-table-row>
             </md-table>
+        </div>
+        <div>
+            <md-button @click="atDeleteAllUsers">Supprimer tous les utilisateurs</md-button>
         </div>
     </div>
 </template>
@@ -76,6 +79,30 @@ export default {
         },
         onCancel() {
             this.value = ''
+        },
+        // 11/11 - FOnction qui permet de supprimer tous les utilisateurs de la base de données
+        atDeleteAllUsers: function() {
+            var vm = this
+            this.$atSurveryDb
+                .allDocs({ include_docs: true })
+                .then(allDocs => {
+                    return allDocs.rows.map(row => {
+                        return {
+                            _id: row.id,
+                            _rev: row.doc._rev,
+                            _deleted: true,
+                        }
+                    })
+                })
+                .then(deleteDocs => {
+                    return this.$atSurveryDb.bulkDocs(deleteDocs)
+                })
+                .then(function() {
+                    vm.atGetUsers()
+                })
+                .catch(function(err) {
+                    console.log(err)
+                })
         },
     },
     created() {

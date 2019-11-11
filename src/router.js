@@ -12,17 +12,22 @@ export default new Router({
         {
             path: '/',
             name: 'home',
-            component: Home,
+            component: () => import('./views/Home.vue'),
         },
         {
-            path: '/result',
-            name: 'result',
-            component: () => import('./views/Result.vue'),
+            path: '/choice',
+            name: 'choice',
+            component: () => import('./views/Choice.vue'),
         },
         {
             path: '/questionnaire',
             name: 'questionnaire',
             component: () => import('./views/Questionnaire.vue'),
+        },
+        {
+            path: '/result',
+            name: 'result',
+            component: () => import('./views/Result.vue'),
         },
         {
             path: '/listUsers',

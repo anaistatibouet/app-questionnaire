@@ -7,17 +7,23 @@ Affichage du résutat de l'utilisateur
 <template>
     <div>
         <div v-show="!atDetails">
-            <div v-if="atTotal > atNbQuestion/2" class="title title-green">Résultat du questionnaire</div>
-            <div v-else class="title title-red">Résultat du questionnaire</div>
-            <md-card class="cardResult">
+            <div
+                v-if="atTotal > atNbQuestion/2"
+                class="md-layout-item md-small-size-100 titleResult title-green"
+            >Résultat du questionnaire</div>
+            <div
+                v-else
+                class="md-layout-item md-small-size-100 titleResult title-red"
+            >Résultat du questionnaire</div>
+            <md-card class="md-layout-item md-size-50 md-small-size-100 cardResult">
                 <md-content>
                     <p class="Result">{{atTotal}} sur {{atNbQuestion}}</p>
                 </md-content>
             </md-card>
         </div>
         <div v-show="atDetails">
-            <h2>Détails du résultat</h2>
-            <md-card class="cardResultDetails">
+            <h2 class="titleResult title-grey">Détails du résultat</h2>
+            <md-card class="md-layout-item md-size-50 md-small-size-100 cardResultDetails">
                 <md-content>
                     <div v-for="(item, index) in atatTab" :key="index">
                         <p class="detail">
@@ -49,15 +55,11 @@ export default {
         atNbQuestion: Number,
         atatTab: [],
         atDetails: false,
-        Question: PoolQuestions,
     }),
     components: {
         Footer,
     },
     methods: {
-        atTest: function() {
-            console.log(JSON.stringify(this.Question))
-        },
         atDisplayDetails: function() {
             this.atDetails = true
         },
@@ -73,15 +75,23 @@ export default {
 }
 </script>
 <style>
-.title {
+.titleResult {
     padding: 20px 0;
-    margin: 0 600px;
+    margin: 0 480px;
     border-radius: 2px;
     font-weight: bold;
     color: black;
     position: relative;
     top: 30px;
     z-index: 10;
+}
+
+.title-grey {
+    background: linear-gradient(60deg, #b8b9b9, #a8a8a8);
+    -webkit-box-shadow: 0 12px 20px -10px rgba(151, 151, 151, 0.28),
+        0 4px 20px 0 rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(76, 175, 80, 0.2);
+    box-shadow: 0 12px 20px -10px rgba(69, 79, 80, 0.28),
+        0 4px 20px 0 rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(93, 101, 102, 0.2);
 }
 .title-green {
     background: linear-gradient(60deg, #66bb6a, #43a047);
@@ -98,13 +108,13 @@ export default {
         0 4px 20px 0 rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(244, 67, 54, 0.2);
 }
 .cardResult {
-    margin: 0 400px 50px;
-    padding: 50px 10px 30px;
+    margin: 0 375px 50px;
+    padding: 50px 0 30px;
     font-size: 30px;
     border-radius: 10px;
 }
 .cardResultDetails {
-    margin: 0 400px 50px;
+    margin: 0 375px 50px;
     padding: 50px 10px 30px;
     font-size: 12;
     border-radius: 10px;
