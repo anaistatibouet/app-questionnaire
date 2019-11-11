@@ -49,7 +49,7 @@ export default {
                 },
             })
 
-            console.log('nb entré', this.atPoolQuest)
+            // console.log('nb entré', this.atPoolQuest)
         },
     },
 }

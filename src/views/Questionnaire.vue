@@ -27,7 +27,7 @@ import Footer from '@/components/Footer.vue'
 import ReturnToHome from '@/components/ReturnToHome.vue'
 
 // 10/11 - Les fichiers relatifs aux questions
-import PoolQuestions from '../json/poolQuestions.json'
+import PoolQuestions from '../json/Questions.json'
 import Question from '@/components/Question.vue'
 
 export default {
@@ -47,25 +47,54 @@ export default {
     },
     // Méthode qui permet d'incrémenter l'index des questions
     methods: {
+        // atRandom: function() {
+        //     var randomQuestion = this.Questions[
+        //         Math.floor(Math.random() * this.Questions.length)
+        //     ]
+        //     randomQuestion = this.Questions[this.atDisplay]
+        // },
         atUserResponse: function() {
             if (
                 JSON.stringify(this.Questions[this.atDisplay].atUserAnswers) ===
                 JSON.stringify(this.Questions[this.atDisplay].atCorrectAnswers)
             ) {
+                console.log(
+                    'Correct',
+                    JSON.stringify(
+                        this.Questions[this.atDisplay].atCorrectAnswers
+                    )
+                )
+                console.log(
+                    'User',
+                    JSON.stringify(this.Questions[this.atDisplay].atUserAnswers)
+                )
                 // 10/11 - On ajoute au tableau pour l'affichage du détails des résultats
                 this.atResultDetails.push('Réponse correcte')
+                console.log('OK')
                 // 10/11 - On incrémente les points
                 this.atResult++
             } else {
+                console.log(
+                    'Correct',
+                    JSON.stringify(
+                        this.Questions[this.atDisplay].atCorrectAnswers
+                    )
+                )
+                console.log(
+                    'User',
+                    JSON.stringify(this.Questions[this.atDisplay].atUserAnswers)
+                )
+                console.log('KO')
                 this.atResultDetails.push('Mauvaise réponse')
             }
             this.atNextQuestion()
         },
         atNextQuestion: function() {
-            // 09/11 - Test Random Question mais ça marche pas
+            // 11/11 - Permet d'avoir une question tirée aléatoirement du tableau JSON
             var randomQuestion = this.Questions[
                 Math.floor(Math.random() * this.Questions.length)
             ]
+            console.log(randomQuestion)
 
             this.atChoiceQuestion = this.$route.query.atPoolQuest
             var atNbQuestion = this.atChoiceQuestion
@@ -73,6 +102,7 @@ export default {
             // 09/11 - Passage à la question suivante
             if (this.atDisplay < atLengthTab - 1) {
                 this.atDisplay++
+                this.Questions[this.atDisplay] = randomQuestion
                 this.atQuestion = randomQuestion
             } else {
                 // 09/11 - Redirection vers la page de résultat
@@ -93,7 +123,6 @@ export default {
     },
     mounted() {
         this.atChoiceQuestion = this.$route.query.atPoolQuest
-        console.log(this.atChoiceQuestion)
     },
 }
 </script>

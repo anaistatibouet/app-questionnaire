@@ -50,7 +50,6 @@ Affichage du résutat de l'utilisateur
 
 <script>
 import Footer from '@/components/Footer.vue'
-import PoolQuestions from '../json/poolQuestions.json'
 
 export default {
     name: 'result',
