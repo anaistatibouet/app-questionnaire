@@ -48,8 +48,6 @@ export default {
                     atPoolQuest: this.atPoolQuest,
                 },
             })
-
-            // console.log('nb entré', this.atPoolQuest)
         },
     },
 }

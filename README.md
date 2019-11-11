@@ -58,6 +58,24 @@ Créer le fichier PoolQuestions.json : KO car pb avec les checkbox
 Régler le pb avec les check <br>
 Afficher la liste de tous les utilisateurs
 
+## Avancée globale
+
+**Fonctionnalités réalisées**
+Formulaire de saisie de l'utilisateur<br>
+Ajout d'un utilisateur<br>
+Affichage d'une liste d'utilisateurs<br>
+Suppression d'un utilisateur<br>
+Suppression de tous les utilisateurs<br>
+Affichage du questionnaire question par question<br>
+Fonctionnalité de limitation du nombre de questions choisies<br>
+Fonctionnalité pour avoir des questions aléatoires<br>
+Affichage du résultat<br>
+
+**Fonctionnalités à faire**
+Créer un admin avec un mot de passe<br>
+Afficher le score dans le tableau des utilisateurs<br>
+Gérer la répétition possible d'une question aléatoire<br>
+
 ---
 
 ## Project setup

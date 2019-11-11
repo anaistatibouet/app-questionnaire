@@ -38,6 +38,7 @@ export default {
         atDisplay: -1,
         atQuestion: Object,
         Questions: PoolQuestions,
+        randomQuestion: Object,
     }),
     components: {
         Question,
@@ -47,54 +48,26 @@ export default {
     },
     // Méthode qui permet d'incrémenter l'index des questions
     methods: {
-        // atRandom: function() {
-        //     var randomQuestion = this.Questions[
-        //         Math.floor(Math.random() * this.Questions.length)
-        //     ]
-        //     randomQuestion = this.Questions[this.atDisplay]
-        // },
         atUserResponse: function() {
             if (
                 JSON.stringify(this.Questions[this.atDisplay].atUserAnswers) ===
                 JSON.stringify(this.Questions[this.atDisplay].atCorrectAnswers)
             ) {
-                console.log(
-                    'Correct',
-                    JSON.stringify(
-                        this.Questions[this.atDisplay].atCorrectAnswers
-                    )
-                )
-                console.log(
-                    'User',
-                    JSON.stringify(this.Questions[this.atDisplay].atUserAnswers)
-                )
                 // 10/11 - On ajoute au tableau pour l'affichage du détails des résultats
                 this.atResultDetails.push('Réponse correcte')
-                console.log('OK')
                 // 10/11 - On incrémente les points
                 this.atResult++
             } else {
-                console.log(
-                    'Correct',
-                    JSON.stringify(
-                        this.Questions[this.atDisplay].atCorrectAnswers
-                    )
-                )
-                console.log(
-                    'User',
-                    JSON.stringify(this.Questions[this.atDisplay].atUserAnswers)
-                )
-                console.log('KO')
                 this.atResultDetails.push('Mauvaise réponse')
             }
             this.atNextQuestion()
         },
         atNextQuestion: function() {
             // 11/11 - Permet d'avoir une question tirée aléatoirement du tableau JSON
-            var randomQuestion = this.Questions[
+            // Problème est qu'une question peut se répéter
+            this.randomQuestion = this.Questions[
                 Math.floor(Math.random() * this.Questions.length)
             ]
-            console.log(randomQuestion)
 
             this.atChoiceQuestion = this.$route.query.atPoolQuest
             var atNbQuestion = this.atChoiceQuestion
@@ -102,8 +75,9 @@ export default {
             // 09/11 - Passage à la question suivante
             if (this.atDisplay < atLengthTab - 1) {
                 this.atDisplay++
-                this.Questions[this.atDisplay] = randomQuestion
-                this.atQuestion = randomQuestion
+                // 11/11 - Permet d'afficher la question
+                this.Questions[this.atDisplay] = this.randomQuestion
+                this.atQuestion = this.randomQuestion
             } else {
                 // 09/11 - Redirection vers la page de résultat
                 this.$router.push({
