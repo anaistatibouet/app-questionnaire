@@ -35,8 +35,12 @@ Affichage du résutat de l'utilisateur
                 </md-content>
             </md-card>
         </div>
-        <md-button @click="atDisplayDetails" v-show="!atDetails">Détails du résultat</md-button>
-        <md-button @click="atDisplayResult" v-show="atDetails">Résultat</md-button>
+        <md-button
+            @click="atDisplayDetails"
+            v-show="!atDetails"
+            class="md-raised"
+        >Détails du résultat</md-button>
+        <md-button @click="atDisplayResult" v-show="atDetails" class="md-raised">Résultat</md-button>
         <router-link to="/">
             <md-button class="md-raised md-primary">Accueil</md-button>
         </router-link>

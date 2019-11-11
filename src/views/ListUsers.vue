@@ -1,6 +1,21 @@
 <template>
     <div>
         <FormTitle class="title" titleForm="Tableau récapitulatif"></FormTitle>
+        <div class="deleteAll">
+            <md-button class="md-raised md-accent" @click="activePopup = true">
+                <md-icon>delete_forever</md-icon>
+                <span class="text">Tout supprimer</span>
+            </md-button>
+        </div>
+        <md-dialog-confirm
+            :md-active.sync="activePopup"
+            md-title="Etes-vous sûr de vouloir vider la base de données ?"
+            md-content
+            md-cancel-text="Non"
+            md-confirm-text="Oui"
+            @md-cancel="onCancel"
+            @md-confirm="atDeleteAllUsers"
+        />
         <div class="md-layout md-alignment-center">
             <md-table
                 v-model="atUsers.rows"
@@ -35,9 +50,6 @@
                 </md-table-row>
             </md-table>
         </div>
-        <div>
-            <md-button @click="atDeleteAllUsers">Supprimer tous les utilisateurs</md-button>
-        </div>
     </div>
 </template>
 <script>
@@ -46,6 +58,7 @@ import FormTitle from '@/components/FormTitle.vue'
 export default {
     name: 'listUsers',
     data: () => ({
+        activePopup: false,
         active: false,
         value: null,
         atUsers: Object,
@@ -118,7 +131,11 @@ export default {
 .cap {
     text-transform: capitalize;
 }
-#listUser {
-    overflow: auto;
+.deleteAll {
+    margin-bottom: 20px;
+}
+.text {
+    vertical-align: middle;
+    margin-left: 5px;
 }
 </style>

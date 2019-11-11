@@ -24,11 +24,11 @@
 <script>
 import FormTitle from '@/components/FormTitle.vue'
 import Footer from '@/components/Footer.vue'
+import ReturnToHome from '@/components/ReturnToHome.vue'
+
 // 10/11 - Les fichiers relatifs aux questions
 import PoolQuestions from '../json/poolQuestions.json'
 import Question from '@/components/Question.vue'
-// 10/11 - Composant qui contient Bouton retour à l'accueil
-import ReturnToHome from '@/components/ReturnToHome.vue'
 
 export default {
     name: 'questionnaire',
@@ -62,11 +62,10 @@ export default {
             this.atNextQuestion()
         },
         atNextQuestion: function() {
-            // // 09/11 - Test Random Question mais ça marche pas
-            // var randomItem = this.Questions[
-            //     Math.floor(Math.random() * this.Questions.length)
-            // ]
-            // console.log(randomItem)
+            // 09/11 - Test Random Question mais ça marche pas
+            var randomQuestion = this.Questions[
+                Math.floor(Math.random() * this.Questions.length)
+            ]
 
             this.atChoiceQuestion = this.$route.query.atPoolQuest
             var atNbQuestion = this.atChoiceQuestion
@@ -74,7 +73,7 @@ export default {
             // 09/11 - Passage à la question suivante
             if (this.atDisplay < atLengthTab - 1) {
                 this.atDisplay++
-                this.atQuestion = this.Questions[this.atDisplay]
+                this.atQuestion = randomQuestion
             } else {
                 // 09/11 - Redirection vers la page de résultat
                 this.$router.push({

@@ -1,3 +1,7 @@
+<!-- 
+11/11 - Formulaire qui demande à l'utilisateur le nombre de questions du questionnaire
+Sa réponse est envoyée en paramètre dans l'url ce qui permettra de gérer la taille du tableau du questionnaire
+-->
 <template>
     <div>
         <div>
@@ -39,7 +43,7 @@ export default {
         atChooseNbQuestion: function() {
             this.$router.push({
                 name: 'questionnaire',
-                // 10/11 - On l'envoie en paramètres pour le récupérer sur la page résultat
+                // 11/11 - On l'envoie en paramètres pour le récupérer sur la page résultat
                 query: {
                     atPoolQuest: this.atPoolQuest,
                 },
