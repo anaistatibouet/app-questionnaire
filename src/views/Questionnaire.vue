@@ -48,6 +48,25 @@ export default {
     },
     // Méthode qui permet d'incrémenter l'index des questions
     methods: {
+        // 11/11 - Permet d'avoir une question tirée aléatoirement du tableau JSON
+        // Problème est qu'une question peut se répéter
+        // 12/11 - Fix le problème de répétition : array Shuffle et appeler dans created.
+        // Au lieu de tirer une question aléatoirement, tout le tableau est mélangé.
+        atShuffleArray: function(array) {
+            var counter = array.length
+            var temp
+            var index
+            while (counter > 0) {
+                index = Math.floor(Math.random() * counter)
+
+                counter--
+
+                temp = array[counter]
+                array[counter] = array[index]
+                array[index] = temp
+            }
+            return array
+        },
         atUserResponse: function() {
             if (
                 JSON.stringify(this.Questions[this.atDisplay].atUserAnswers) ===
@@ -63,12 +82,6 @@ export default {
             this.atNextQuestion()
         },
         atNextQuestion: function() {
-            // 11/11 - Permet d'avoir une question tirée aléatoirement du tableau JSON
-            // Problème est qu'une question peut se répéter
-            this.randomQuestion = this.Questions[
-                Math.floor(Math.random() * this.Questions.length)
-            ]
-
             this.atChoiceQuestion = this.$route.query.atPoolQuest
             var atNbQuestion = this.atChoiceQuestion
             var atLengthTab = atNbQuestion
@@ -76,8 +89,7 @@ export default {
             if (this.atDisplay < atLengthTab - 1) {
                 this.atDisplay++
                 // 11/11 - Permet d'afficher la question
-                this.Questions[this.atDisplay] = this.randomQuestion
-                this.atQuestion = this.randomQuestion
+                this.atQuestion = this.Questions[this.atDisplay]
             } else {
                 // 09/11 - Redirection vers la page de résultat
                 this.$router.push({
@@ -93,6 +105,7 @@ export default {
         },
     },
     created() {
+        this.atShuffleArray(this.Questions)
         this.atNextQuestion()
     },
     mounted() {

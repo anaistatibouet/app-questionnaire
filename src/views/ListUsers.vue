@@ -16,12 +16,24 @@
             @md-cancel="onCancel"
             @md-confirm="atDeleteAllUsers"
         />
+        <div
+            class="atTabEmpty"
+            v-if="this.atUsers.rows === undefined ||
+                this.atUsers.rows.length == 0"
+        >
+            <p>Aucun utilisateur dans la base de données</p>
+            <router-link to="/">
+                <md-button class="md-icon-button md-raised md-primary">
+                    <md-icon>add</md-icon>
+                </md-button>
+            </router-link>
+        </div>
         <div class="md-layout md-alignment-center">
             <md-table
                 v-model="atUsers.rows"
                 md-card
                 style="text-align: left;"
-                class="md-layout-item md-size-50 md-small-size-100"
+                class="md-layout-item md-size-50 md-small-size-100 md-fixed-header list-users"
             >
                 <md-table-row slot="md-table-row" slot-scope="{ item }">
                     <md-table-cell md-label="Date">{{ item.doc.atDate}}</md-table-cell>
@@ -50,10 +62,12 @@
                 </md-table-row>
             </md-table>
         </div>
+        <Footer></Footer>
     </div>
 </template>
 <script>
 import FormTitle from '@/components/FormTitle.vue'
+import Footer from '@/components/Footer.vue'
 
 export default {
     name: 'listUsers',
@@ -62,9 +76,11 @@ export default {
         active: false,
         value: null,
         atUsers: Object,
+        empty: false,
     }),
     components: {
         FormTitle,
+        Footer,
     },
     methods: {
         // 10/11 - Fonction qui retourne la liste de tous les utilisateurs en BDD
@@ -137,5 +153,13 @@ export default {
 .text {
     vertical-align: middle;
     margin-left: 5px;
+}
+.list-users {
+    height: 45vh;
+}
+.atTabEmpty {
+    position: relative;
+    top: 155px;
+    z-index: 2;
 }
 </style>
