@@ -80,7 +80,9 @@ Affichage du questionnaire question par question<br>
 Fonctionnalité de limitation du nombre de questions choisies<br>
 Fonctionnalité pour avoir des questions aléatoires<br>
 Affichage du résultat<br>
+Affichage du détail du résultat<br>
 Afficher le score dans le tableau des utilisateurs<br>
+Formulaire pour l'administrateur avec mot de passe<br>
 
 ---
 
