@@ -38,7 +38,7 @@ export default {
         atDisplay: -1,
         atQuestion: Object,
         Questions: PoolQuestions,
-        randomQuestion: Object,
+        atArray: [],
     }),
     components: {
         Question,
@@ -52,8 +52,8 @@ export default {
         // Problème est qu'une question peut se répéter
         // 12/11 - Fix le problème de répétition : array Shuffle et appeler dans created.
         // Au lieu de tirer une question aléatoirement, tout le tableau est mélangé.
-        atShuffleArray: function(array) {
-            var counter = array.length
+        atShuffleArray: function(atArray) {
+            var counter = atArray.length
             var temp
             var index
             while (counter > 0) {
@@ -61,11 +61,11 @@ export default {
 
                 counter--
 
-                temp = array[counter]
-                array[counter] = array[index]
-                array[index] = temp
+                temp = atArray[counter]
+                atArray[counter] = atArray[index]
+                atArray[index] = temp
             }
-            return array
+            return atArray
         },
         atUserResponse: function() {
             if (

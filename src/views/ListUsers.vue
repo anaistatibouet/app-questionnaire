@@ -1,12 +1,6 @@
 <template>
     <div>
         <FormTitle class="title" titleForm="Tableau récapitulatif"></FormTitle>
-        <div class="deleteAll">
-            <md-button class="md-raised md-accent" @click="activePopup = true">
-                <md-icon>delete_forever</md-icon>
-                <span class="text">Tout supprimer</span>
-            </md-button>
-        </div>
         <md-dialog-confirm
             :md-active.sync="activePopup"
             md-title="Etes-vous sûr de vouloir vider la base de données ?"
@@ -33,13 +27,24 @@
                 v-model="atUsers.rows"
                 md-card
                 style="text-align: left;"
-                class="md-layout-item md-size-50 md-small-size-100 md-fixed-header list-users"
+                class="md-layout-item md-size-70 md-small-size-100 md-fixed-header list-users"
             >
                 <md-table-row slot="md-table-row" slot-scope="{ item }">
                     <md-table-cell md-label="Date">{{ item.doc.atDate}}</md-table-cell>
                     <md-table-cell md-label="Prénom" class="cap">{{ item.doc.atFirstname }}</md-table-cell>
                     <md-table-cell md-label="Nom">{{ item.doc.atLastname.toUpperCase() }}</md-table-cell>
                     <md-table-cell md-label="Société" class="cap">{{ item.doc.atCompany }}</md-table-cell>
+                    <md-table-cell
+                        md-label="Dernier score"
+                        class="bad-score"
+                        v-if="item.doc.atScore < 50"
+                    >{{item.doc.atScore}}%</md-table-cell>
+                    <md-table-cell
+                        md-label="Dernier score"
+                        class="good-score"
+                        v-else
+                    >{{item.doc.atScore}}%</md-table-cell>
+                    <md-table-cell md-label="Date du test">{{item.doc.atDateLastSurvey}}</md-table-cell>
                     <md-table-cell md-label="Supprimer">
                         <div>
                             <md-dialog-confirm
@@ -61,6 +66,12 @@
                     </md-table-cell>
                 </md-table-row>
             </md-table>
+        </div>
+        <div class="deleteAll">
+            <md-button class="md-raised md-accent" @click="activePopup = true">
+                <md-icon>delete_forever</md-icon>
+                <span class="text">Tout supprimer</span>
+            </md-button>
         </div>
         <Footer></Footer>
     </div>
@@ -148,11 +159,19 @@ export default {
     text-transform: capitalize;
 }
 .deleteAll {
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 .text {
     vertical-align: middle;
     margin-left: 5px;
+}
+.good-score {
+    text-align: center;
+    color: green;
+}
+.bad-score {
+    text-align: center;
+    color: red;
 }
 .list-users {
     height: 45vh;

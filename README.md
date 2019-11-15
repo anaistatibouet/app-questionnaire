@@ -74,11 +74,9 @@ Affichage du résultat<br>
 **Fonctionnalités à faire**
 Créer un admin avec un mot de passe<br>
 Afficher le score dans le tableau des utilisateurs<br>
-Gérer la répétition possible d'une question aléatoire<br>
 
 **Notes**
 Régler le pb de JSON
-Intégrer fonction random sur tout le tableau
 
 ---
 

@@ -57,6 +57,7 @@ export default {
                 required: true,
             },
             error: false,
+            atIdUser: '',
         }
     },
     components: {
@@ -75,10 +76,12 @@ export default {
         atAddUserDb: function() {
             var atUser = {
                 _id: new Date().toISOString(),
-                atDate: moment().format('LLL'),
+                atDate: moment().format('LL'),
                 atFirstname: this.atDataForm.atFirstname,
                 atLastname: this.atDataForm.atLastname,
                 atCompany: this.atDataForm.atCompany,
+                atScore: null,
+                atDateLastSurvey: null,
             }
             // 10/11 - Permet d'éviter d'entrer des données vides en BDD
             if (
@@ -91,6 +94,8 @@ export default {
                         console.log('Successfully inserted in database')
                     }
                 })
+                sessionStorage.atIdUser = atUser._id
+                console.log(atUser._id)
                 this.$router.push({
                     name: 'choice',
                 })

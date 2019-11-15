@@ -50,6 +50,10 @@ Affichage du résutat de l'utilisateur
 
 <script>
 import Footer from '@/components/Footer.vue'
+import PoolQuestions from '../json/Questions.json'
+
+var moment = require('moment')
+moment.locale('fr')
 
 export default {
     name: 'result',
@@ -58,11 +62,35 @@ export default {
         atNbQuestion: Number,
         atatTab: [],
         atDetails: false,
+        Questions: PoolQuestions,
+        test: '',
     }),
     components: {
         Footer,
     },
     methods: {
+        atScoreUser: function() {
+            var atUserId = sessionStorage.getItem('atIdUser')
+            // JPpersonId = '' + JPpersonId + ''
+            var vm = this
+            this.$atSurveryDb
+                .get(atUserId)
+                .then(function(doc) {
+                    doc.atScore = (vm.atTotal * 100) / vm.atNbQuestion
+                    doc.atDateLastSurvey = moment().format('LLL')
+                    vm.$atSurveryDb.put(doc, function callback(err, result) {
+                        if (!err) {
+                            console.log('Successfully modification')
+                            console.log(result)
+                        } else {
+                            console.log(err)
+                        }
+                    })
+                })
+                .catch(function(err) {
+                    console.log(err)
+                })
+        },
         atDisplayDetails: function() {
             this.atDetails = true
         },
@@ -74,6 +102,9 @@ export default {
         this.atTotal = this.$route.query.atTotal
         this.atNbQuestion = this.$route.query.atNbQuestion
         this.atatTab = this.$route.query.atTab
+    },
+    created() {
+        this.atScoreUser()
     },
 }
 </script>
