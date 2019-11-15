@@ -3,6 +3,9 @@
 **Lien de déploiement**<br>
 https://anaistatibouet.github.io/#/
 
+**Commentaires**<br>
+Mot de passe Administrateur : #EPSI_Vue-js!2019
+
 ## 14 octobre
 
 **Objectifs :**<br>
@@ -78,9 +81,6 @@ Fonctionnalité de limitation du nombre de questions choisies<br>
 Fonctionnalité pour avoir des questions aléatoires<br>
 Affichage du résultat<br>
 Afficher le score dans le tableau des utilisateurs<br>
-
-**Commentaires**<br>
-Mot de passe Administrateur : #EPSI_Vue-js!2019
 
 ---
 
