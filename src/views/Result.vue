@@ -9,7 +9,7 @@ Affichage du résutat de l'utilisateur
         <div v-show="!atDetails">
             <div
                 v-if="atTotal > atNbQuestion/2"
-                class="md-layout-item md-small-size-100 titleResult title-green"
+                class="md-layout-item md-size-40 md-small-size-100 titleResult title-green"
             >Résultat du questionnaire</div>
             <div
                 v-else
@@ -84,7 +84,6 @@ export default {
                     vm.$atSurveryDb.put(doc, function callback(err, result) {
                         if (!err) {
                             console.log('Successfully modification')
-                            console.log(result)
                         } else {
                             console.log(err)
                         }

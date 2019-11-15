@@ -129,9 +129,7 @@ export default {
             this.$atSurveryDb
                 .allDocs({ include_docs: true, attachments: true })
                 .then(function(result) {
-                    console.log(result)
                     vm.atUsers = result
-                    console.log(vm.atUsers)
                 })
                 .catch(function(err) {
                     console.log(err)
@@ -234,5 +232,10 @@ img {
     top: 200px;
     left: 80px;
     width: 250px;
+}
+@media screen and (max-width: 640px) {
+    img {
+        display: none;
+    }
 }
 </style>

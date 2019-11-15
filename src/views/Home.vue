@@ -97,7 +97,6 @@ export default {
                     }
                 })
                 sessionStorage.atIdUser = atUser._id
-                console.log(atUser._id)
                 this.$router.push({
                     name: 'choice',
                 })
