@@ -22,15 +22,21 @@ Affichage du résutat de l'utilisateur
             </md-card>
         </div>
         <div v-show="atDetails">
-            <h2 class="titleResult title-grey">Détails du résultat</h2>
-            <md-card class="md-layout-item md-size-50 md-small-size-100 cardResultDetails">
+            <h2
+                class="md-layout-item md-size-40 md-small-size-100 titleResult title-grey"
+            >Détails du résultat</h2>
+            <md-card class="md-layout-item md-size-80 md-small-size-100 cardResultDetails">
                 <md-content>
-                    <div v-for="(item, index) in atTabResponse" :key="index">
-                        <p class="detail">
-                            <b>Question {{index + 1}} :</b>
-                        </p>
-                        <p class="detail green" v-if="item == 'Réponse correcte'">{{item}}</p>
-                        <p class="detail red" v-if="item == 'Mauvaise réponse'">{{item}}</p>
+                    <div class="NameQuestion">
+                        <div v-for="q in atTabNameQuestion" :key="q.id">
+                            <p>{{q.atName}}</p>
+                        </div>
+                    </div>
+                    <div class="CheckAnwser">
+                        <div v-for="(item, index) in atTabResponse" :key="index">
+                            <p class="detail green" v-if="item == 'Réponse correcte'">{{item}}</p>
+                            <p class="detail red" v-if="item == 'Mauvaise réponse'">{{item}}</p>
+                        </div>
                     </div>
                 </md-content>
             </md-card>
@@ -62,8 +68,8 @@ export default {
         atNbQuestion: Number,
         atTabResponse: [],
         atDetails: false,
-        Questions: PoolQuestions,
-        test: '',
+        // Questions: PoolQuestions,
+        atTabNameQuestion: [],
     }),
     components: {
         Footer,
@@ -101,6 +107,7 @@ export default {
         },
     },
     mounted() {
+        this.atTabNameQuestion = this.$route.query.atTabNameQuestion
         this.atTotal = this.$route.query.atTotal
         this.atNbQuestion = this.$route.query.atNbQuestion
         this.atTabResponse = this.$route.query.atTab
@@ -110,9 +117,9 @@ export default {
     },
 }
 </script>
-<style>
+<style scoped lang="scss">
 .titleResult {
-    padding: 20px 0;
+    padding: 15px 0;
     margin: 0 auto;
     border-radius: 2px;
     font-weight: bold;
@@ -150,22 +157,45 @@ export default {
     border-radius: 10px;
 }
 .cardResultDetails {
+    position: relative;
     margin: 0 auto 50px;
     padding: 50px 10px 30px;
     font-size: 12;
     border-radius: 10px;
-}
-.detail {
-    text-align: left;
-    display: inline-block;
-    margin-bottom: 0;
-}
-.green {
-    margin-right: 2px;
-    color: #43a047;
-}
-.red {
-    margin-right: 2px;
-    color: #e53935;
+    height: 63vh;
+
+    .green {
+        margin-right: 2px;
+        border-radius: 2px;
+        width: 150px;
+        padding: 2px;
+        text-align: center;
+        background-color: #43a047;
+    }
+    .red {
+        margin-right: 2px;
+        border-radius: 2px;
+        width: 150px;
+        padding: 2px;
+        text-align: center;
+        background-color: #e53935;
+    }
+    .NameQuestion {
+        width: 50%;
+        float: left;
+        text-align: left;
+        margin-top: 10px;
+        margin-left: 20px;
+        vertical-align: middle;
+    }
+    .CheckAnwser {
+        float: left;
+        width: 30%;
+        vertical-align: middle;
+        .detail {
+            text-align: center;
+            margin-bottom: 0;
+        }
+    }
 }
 </style>

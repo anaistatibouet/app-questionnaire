@@ -34,6 +34,7 @@ import Question from '@/components/Question.vue'
 export default {
     name: 'questionnaire',
     data: () => ({
+        atTabNameQuestion: [],
         atResultDetails: [],
         atResult: 0,
         atDisplay: -1,
@@ -73,6 +74,9 @@ export default {
                 JSON.stringify(this.Questions[this.atDisplay].atUserAnswers) ===
                 JSON.stringify(this.Questions[this.atDisplay].atCorrectAnswers)
             ) {
+                console.log(
+                    JSON.stringify(this.Questions[this.atDisplay].atUserAnswers)
+                )
                 // 10/11 - On ajoute au tableau pour l'affichage du détails des résultats
                 this.atResultDetails.push('Réponse correcte')
                 // 10/11 - On incrémente les points
@@ -80,6 +84,9 @@ export default {
             } else {
                 this.atResultDetails.push('Mauvaise réponse')
             }
+            this.atTabNameQuestion[this.atDisplay] = this.Questions[
+                this.atDisplay
+            ]
             this.atNextQuestion()
         },
         atPreviousQuestion: function() {
@@ -99,12 +106,11 @@ export default {
                 }
                 // 15/11 - Permet de retirer dernier élément du tableau pur l'affichage du détail des résultats
                 this.atResultDetails.pop()
+                this.atTabNameQuestion.pop()
             }
         },
         atNextQuestion: function() {
-            this.atChoiceQuestion = this.$route.query.atPoolQuest
-            var atNbQuestion = this.atChoiceQuestion
-            var atLengthTab = atNbQuestion
+            var atLengthTab = this.$route.query.atPoolQuest
             // 09/11 - Passage à la question suivante
             if (this.atDisplay < atLengthTab - 1) {
                 this.atDisplay++
@@ -117,8 +123,9 @@ export default {
                     // 10/11 - On l'envoie en paramètres pour le récupérer sur la page résultat
                     query: {
                         atTotal: this.atResult,
-                        atNbQuestion: atNbQuestion,
+                        atNbQuestion: this.$route.query.atPoolQuest,
                         atTab: this.atResultDetails,
+                        atTabNameQuestion: this.atTabNameQuestion,
                     },
                 })
             }
