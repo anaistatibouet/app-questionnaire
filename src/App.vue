@@ -7,7 +7,7 @@
                     <md-icon class="iconMenu">home</md-icon>Accueil
                 </router-link>
                 <router-link to="/dashboard">
-                    <md-icon class="iconMenu">dashboard</md-icon>Tableau de bord Administrateur
+                    <md-icon class="iconMenu">dashboard</md-icon>Espace administrateur
                 </router-link>
             </md-toolbar>
         </div>

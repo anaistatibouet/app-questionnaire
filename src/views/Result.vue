@@ -25,7 +25,7 @@ Affichage du résutat de l'utilisateur
             <h2 class="titleResult title-grey">Détails du résultat</h2>
             <md-card class="md-layout-item md-size-50 md-small-size-100 cardResultDetails">
                 <md-content>
-                    <div v-for="(item, index) in atatTab" :key="index">
+                    <div v-for="(item, index) in atTabResponse" :key="index">
                         <p class="detail">
                             <b>Question {{index + 1}} :</b>
                         </p>
@@ -60,7 +60,7 @@ export default {
     data: () => ({
         atTotal: Number,
         atNbQuestion: Number,
-        atatTab: [],
+        atTabResponse: [],
         atDetails: false,
         Questions: PoolQuestions,
         test: '',
@@ -104,7 +104,7 @@ export default {
     mounted() {
         this.atTotal = this.$route.query.atTotal
         this.atNbQuestion = this.$route.query.atNbQuestion
-        this.atatTab = this.$route.query.atTab
+        this.atTabResponse = this.$route.query.atTab
     },
     created() {
         this.atScoreUser()
