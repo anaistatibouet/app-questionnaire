@@ -49,7 +49,6 @@
                     class="md-layout-item md-size-70 md-small-size-100 md-fixed-header list-users"
                 >
                     <md-table-row slot="md-table-row" slot-scope="{ item }">
-                        <md-table-cell md-label="Date">{{ item.doc.atDate}}</md-table-cell>
                         <md-table-cell md-label="Prénom" class="cap">{{ item.doc.atFirstname }}</md-table-cell>
                         <md-table-cell md-label="Nom">{{ item.doc.atLastname.toUpperCase() }}</md-table-cell>
                         <md-table-cell md-label="Société" class="cap">{{ item.doc.atCompany }}</md-table-cell>
