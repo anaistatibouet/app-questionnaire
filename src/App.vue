@@ -6,11 +6,8 @@
                 <router-link to="/">
                     <md-icon class="iconMenu">home</md-icon>Accueil
                 </router-link>
-                <router-link to="/listUsers">
-                    <md-icon class="iconMenu">list_alt</md-icon>Liste Prestataires
-                </router-link>
-                <router-link to="/administrateur">
-                    <md-icon class="iconMenu">account_box</md-icon>Administrateur
+                <router-link to="/dashboard">
+                    <md-icon class="iconMenu">dashboard</md-icon>Tableau de bord Administrateur
                 </router-link>
             </md-toolbar>
         </div>

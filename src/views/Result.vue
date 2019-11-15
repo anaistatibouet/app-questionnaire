@@ -69,14 +69,17 @@ export default {
         Footer,
     },
     methods: {
+        // 15/11 - Cette fonction permet d'ajouter le score au tableau des utilisateurs
         atScoreUser: function() {
             var atUserId = sessionStorage.getItem('atIdUser')
-            // JPpersonId = '' + JPpersonId + ''
             var vm = this
             this.$atSurveryDb
                 .get(atUserId)
                 .then(function(doc) {
-                    doc.atScore = (vm.atTotal * 100) / vm.atNbQuestion
+                    // 15/11 - Le nombre de question étant différent à chaque questionnaire, un pourcentage est plus parlant
+                    doc.atScore = Math.round(
+                        (vm.atTotal * 100) / vm.atNbQuestion
+                    )
                     doc.atDateLastSurvey = moment().format('LLL')
                     vm.$atSurveryDb.put(doc, function callback(err, result) {
                         if (!err) {

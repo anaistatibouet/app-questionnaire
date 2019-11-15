@@ -1,66 +1,73 @@
 # app-questionnaire
 
-**Lien de déploiement**
+**Lien de déploiement**<br>
 https://anaistatibouet.github.io/#/
 
 ## 14 octobre
 
-**Objectifs :**
+**Objectifs :**<br>
 Mise en place du projet VueJS <br>
 Intégrer le framework CSS au projet
 
-**Avancement**
+**Avancement**<br>
 Fait
 
 ## 15 octobre
 
-**Objectifs :**
+**Objectifs :**<br>
 Créer le questionnaire et le composant Question <br>
 Gérer la navigation entre le 1er questionnaire et les Questions
 
-**Avancement**
+**Avancement**<br>
 Questionnaire : ok <br>
 1ère question implémentée
 
 ## 05 novembre
 
-**Objectifs :**
+**Objectifs :**<br>
 Naviguer entre les questions <br>
 Récupérer les résultats de l'utilisateur
 
-**Avancement**
+**Avancement**<br>
 OK
 
 ## 07 novembre
 
-**Objectifs :**
+**Objectifs :**<br>
 Calculer le résultat <br>
 Afficher le résultat
 
-**Avancement**
+**Avancement**<br>
 Ok
 
 ## 09 Novembre
 
-**Objectifs :**
+**Objectifs :**<br>
 Installer et importer PouchDB <br>
 Régler les problèmes d'affichage <br>
 Créer le fichier PoolQuestions.json <br>
 Faire la fonction d'ajout d'utilisateur
 
-**Avancement**
+**Avancement**<br>
 pouchDb + ajout utilisateur : Ok<br>
-Créer le fichier PoolQuestions.json : KO car pb avec les checkbox
+Créer le fichier PoolQuestions.json
 
 ## 10 novembre
 
-**Objectifs :**
-Régler le pb avec les check <br>
+**Objectifs :**<br>
 Afficher la liste de tous les utilisateurs
+
+**Avancements**
+OK
+
+## Fin du projet
+
+**Objectifs**<br>
+Implémenter les fonctionnalités complémentaires
 
 ## Avancée globale
 
-**Fonctionnalités réalisées**
+**Fonctionnalités réalisées**<br>
 Formulaire de saisie de l'utilisateur<br>
 Ajout d'un utilisateur<br>
 Affichage d'une liste d'utilisateurs<br>
@@ -70,13 +77,10 @@ Affichage du questionnaire question par question<br>
 Fonctionnalité de limitation du nombre de questions choisies<br>
 Fonctionnalité pour avoir des questions aléatoires<br>
 Affichage du résultat<br>
-
-**Fonctionnalités à faire**
-Créer un admin avec un mot de passe<br>
 Afficher le score dans le tableau des utilisateurs<br>
 
-**Notes**
-Régler le pb de JSON
+**Commentaires**<br>
+Mot de passe Administrateur : #EPSI_Vue-js!2019
 
 ---
 

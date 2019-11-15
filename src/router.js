@@ -30,9 +30,9 @@ export default new Router({
             component: () => import('./views/Result.vue'),
         },
         {
-            path: '/listUsers',
-            name: 'listUsers',
-            component: () => import('./views/ListUsers.vue'),
+            path: '/dashboard',
+            name: 'dashboard',
+            component: () => import('./views/DashboardAdmin.vue'),
         },
     ],
 })
