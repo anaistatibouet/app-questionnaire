@@ -13,6 +13,7 @@
                 <Question
                     v-bind:key="atQuestion.atId"
                     @counterQuestion="atUserResponse()"
+                    @countdownQuestion="atPreviousQuestion()"
                     :atMyQuestion="atQuestion"
                 ></Question>
             </md-card-content>
@@ -81,6 +82,25 @@ export default {
             }
             this.atNextQuestion()
         },
+        atPreviousQuestion: function() {
+            this.atChoiceQuestion = this.$route.query.atPoolQuest
+            var atNbQuestion = this.atChoiceQuestion
+            var atLengthTab = atNbQuestion
+            // 15/11 - Permet d'afficher la question précédente sauf si c'est la première
+            if (this.atDisplay > 0) {
+                this.atDisplay--
+                this.atQuestion = this.Questions[this.atDisplay]
+                // 15/11 - On enlève 1 point si la réponse était correcte et que l'utilisateur revient en arrière
+                if (
+                    this.atResultDetails[this.atResultDetails.length - 1] ===
+                    'Réponse correcte'
+                ) {
+                    this.atResult = this.atResult - 1
+                }
+                // 15/11 - Permet de retirer dernier élément du tableau pur l'affichage du détail des résultats
+                this.atResultDetails.pop()
+            }
+        },
         atNextQuestion: function() {
             this.atChoiceQuestion = this.$route.query.atPoolQuest
             var atNbQuestion = this.atChoiceQuestion
@@ -107,6 +127,7 @@ export default {
     created() {
         this.atShuffleArray(this.Questions)
         this.atNextQuestion()
+        this.atPreviousQuestion()
     },
     mounted() {
         this.atChoiceQuestion = this.$route.query.atPoolQuest
@@ -120,7 +141,7 @@ export default {
     padding: 0;
 }
 .title {
-    margin: 0 0 100px;
+    margin: 50px 0 100px;
 }
 @media screen and (max-width: 640px) {
     .title {

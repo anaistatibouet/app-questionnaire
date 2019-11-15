@@ -28,10 +28,21 @@ Affichage du résultat final dans un console log puis sur une page "result" avec
         </div>
         <div>
             <md-button
+                @click="atPreviousQuestion()"
+                id="previous"
                 type="submit"
+                class="md-icon-button md-raised"
+            >
+                <md-icon class="icon">navigate_before</md-icon>
+            </md-button>
+            <md-button
                 @click="atNextQuestion()"
-                class="md-raised md-primary"
-            >Question suivante</md-button>
+                id="next"
+                type="submit"
+                class="md-icon-button md-raised"
+            >
+                <md-icon class="icon">navigate_next</md-icon>
+            </md-button>
         </div>
     </div>
 </template>
@@ -52,6 +63,9 @@ export default {
         atNextQuestion: function() {
             this.$emit('counterQuestion')
         },
+        atPreviousQuestion: function() {
+            this.$emit('countdownQuestion')
+        },
     },
 }
 </script>
@@ -68,5 +82,14 @@ p {
     box-shadow: 0 12px 20px -10px rgba(255, 152, 0, 0.28),
         0 4px 20px 0 rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(255, 152, 0, 0.2);
     border-radius: 5px;
+}
+#previous,
+#next {
+    margin: 40px 10px 10px;
+    background-color: rgb(9, 9, 141);
+
+    .icon {
+        color: white;
+    }
 }
 </style>

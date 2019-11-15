@@ -1,6 +1,9 @@
 <template>
     <div>
         <div v-show="!isAdmin">
+            <img src="../assets/administration.png" alt />
+        </div>
+        <div v-show="!isAdmin">
             <md-card class="md-layout-item md-size-50 md-small-size-100 atForm">
                 <FormTitle class="title" titleForm="Espace Administrateur"></FormTitle>
                 <md-field>
@@ -8,7 +11,8 @@
                     <md-input v-model="atAdminPassword" type="password"></md-input>
                 </md-field>
                 <md-button
-                    class="md-raised md-primary"
+                    class="md-raised"
+                    id="admin-btn"
                     @click="atVerifyAdminPwd"
                 >Accéder au tableau de bord</md-button>
             </md-card>
@@ -188,9 +192,6 @@ export default {
 .title {
     margin: 40px;
 }
-.cap {
-    text-transform: capitalize;
-}
 .deleteAll {
     margin-top: 20px;
 }
@@ -198,17 +199,21 @@ export default {
     vertical-align: middle;
     margin-left: 5px;
 }
-.good-score {
-    text-align: center;
-    color: green;
-}
-.error,
-.bad-score {
-    text-align: center;
-    color: red;
-}
+
 .list-users {
     height: 45vh;
+
+    .good-score {
+        text-align: center;
+        color: green;
+    }
+    .bad-score {
+        text-align: center;
+        color: red;
+    }
+    .cap {
+        text-transform: capitalize;
+    }
 }
 .atTabEmpty {
     position: relative;
@@ -216,7 +221,18 @@ export default {
     z-index: 2;
 }
 .atForm {
-    margin: 100px auto;
-    padding: 10px 50px 20px;
+    margin: 140px auto;
+    padding: 10px 120px 20px;
+
+    #admin-btn {
+        background-color: purple;
+        color: white;
+    }
+}
+img {
+    position: absolute;
+    top: 200px;
+    left: 80px;
+    width: 250px;
 }
 </style>

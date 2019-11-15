@@ -25,7 +25,9 @@
                     </md-field>
                 </div>
             </md-card-content>
-            <md-button @click="atResetForm" class="md-raised md-accent">Réinitialiser</md-button>
+            <md-button @click="atResetForm" class="md-icon-button md-raised md-accent atReset">
+                <md-icon>autorenew</md-icon>
+            </md-button>
             <md-button @click="atAddUserDb" class="md-raised md-primary">Commencer le test</md-button>
         </md-card>
         <!-- 10/11 Permet d'avertir l'utilisateur qu'il faut entrer des informations et évite les erreurs en BDD  -->
@@ -120,6 +122,11 @@ img {
     top: 200px;
     left: 80px;
     width: 250px;
+}
+.atReset {
+    position: absolute;
+    bottom: 12px;
+    right: 10px;
 }
 @media screen and (max-width: 640px) {
     .atForm {

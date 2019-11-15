@@ -4,11 +4,15 @@ Sa réponse est envoyée en paramètre dans l'url ce qui permettra de gérer la 
 -->
 <template>
     <div>
+        <img src="../assets/settings.png" alt />
         <div>
             <md-card class="md-layout-item md-size-50 md-small-size-100 atForm">
+                <div>
+                    <FormTitle class="title" titleForm="Paramétrage des questions"></FormTitle>
+                </div>
                 <md-content>
                     <md-field>
-                        <label>Mon questionnaire aura :</label>
+                        <label>Combien de questions voulez-vous ?</label>
                         <md-input
                             type="number"
                             v-model="atPoolQuest"
@@ -20,6 +24,7 @@ Sa réponse est envoyée en paramètre dans l'url ce qui permettra de gérer la 
                     <div>
                         <md-button
                             type="submit"
+                            id="go"
                             class="md-raised md-primary"
                             @click="atChooseNbQuestion"
                         >Let's go</md-button>
@@ -33,10 +38,14 @@ Sa réponse est envoyée en paramètre dans l'url ce qui permettra de gérer la 
             md-content="Entrez un nombre entre 1 et 10"
             md-confirm-text="J'ai compris"
         />
+        <Footer></Footer>
     </div>
 </template>
 
 <script>
+import FormTitle from '@/components/FormTitle.vue'
+import Footer from '@/components/Footer.vue'
+
 export default {
     name: 'choice',
     data: () => ({
@@ -45,6 +54,10 @@ export default {
         atPoolQuest: Number,
         error: false,
     }),
+    components: {
+        Footer,
+        FormTitle,
+    },
     props: {},
     methods: {
         atChooseNbQuestion: function() {
@@ -67,7 +80,21 @@ export default {
 
 <style scoped lang="scss">
 .atForm {
-    margin: 50px auto;
+    margin: 115px auto;
     padding: 50px;
+
+    #go {
+        background-color: rgb(9, 9, 141);
+        color: white;
+    }
+}
+.title {
+    margin-bottom: 50px;
+}
+img {
+    position: absolute;
+    top: 200px;
+    left: 80px;
+    width: 250px;
 }
 </style>
