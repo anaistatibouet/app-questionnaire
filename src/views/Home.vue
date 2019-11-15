@@ -28,7 +28,11 @@
             <md-button @click="atResetForm" class="md-icon-button md-raised md-accent atReset">
                 <md-icon>autorenew</md-icon>
             </md-button>
-            <md-button @click="atAddUserDb" class="md-raised md-primary">Commencer le test</md-button>
+            <md-button
+                @click="atAddUserDb"
+                class="md-raised md-primary"
+                id="test-btn"
+            >Commencer le test</md-button>
         </md-card>
         <!-- 10/11 Permet d'avertir l'utilisateur qu'il faut entrer des informations et évite les erreurs en BDD  -->
         <md-dialog-alert
@@ -126,6 +130,10 @@ img {
     position: absolute;
     bottom: 12px;
     right: 10px;
+}
+#test-btn {
+    background-color: rgb(9, 9, 141);
+    color: white;
 }
 @media screen and (max-width: 640px) {
     .atForm {

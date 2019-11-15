@@ -48,7 +48,7 @@ Affichage du résutat de l'utilisateur
         >Détails du résultat</md-button>
         <md-button @click="atDisplayResult" v-show="atDetails" class="md-raised">Résultat</md-button>
         <router-link to="/">
-            <md-button class="md-raised md-primary">Accueil</md-button>
+            <md-button class="md-raised md-primary" id="home">Accueil</md-button>
         </router-link>
         <Footer></Footer>
     </div>
@@ -158,9 +158,8 @@ export default {
 }
 .cardResultDetails {
     position: relative;
-    margin: 0 auto 50px;
+    margin: 0 auto 20px;
     padding: 50px 10px 30px;
-    font-size: 12;
     border-radius: 10px;
     height: 63vh;
 
@@ -197,5 +196,9 @@ export default {
             margin-bottom: 0;
         }
     }
+}
+#home {
+    background-color: rgb(9, 9, 141);
+    color: white;
 }
 </style>
