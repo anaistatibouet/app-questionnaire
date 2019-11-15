@@ -13,7 +13,7 @@ Affichage du résutat de l'utilisateur
             >Résultat du questionnaire</div>
             <div
                 v-else
-                class="md-layout-item md-small-size-100 titleResult title-red"
+                class="md-layout-item md-size-40 md-small-size-100 titleResult title-red"
             >Résultat du questionnaire</div>
             <md-card class="md-layout-item md-size-50 md-small-size-100 cardResult">
                 <md-content>
@@ -114,7 +114,7 @@ export default {
 <style>
 .titleResult {
     padding: 20px 0;
-    margin: 0 480px;
+    margin: 0 auto;
     border-radius: 2px;
     font-weight: bold;
     color: black;
@@ -145,13 +145,13 @@ export default {
         0 4px 20px 0 rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(244, 67, 54, 0.2);
 }
 .cardResult {
-    margin: 0 375px 50px;
+    margin: 0 auto 50px;
     padding: 50px 0 30px;
     font-size: 30px;
     border-radius: 10px;
 }
 .cardResultDetails {
-    margin: 0 375px 50px;
+    margin: 0 auto 50px;
     padding: 50px 10px 30px;
     font-size: 12;
     border-radius: 10px;
