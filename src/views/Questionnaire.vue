@@ -87,9 +87,7 @@ export default {
             this.atNextQuestion()
         },
         atPreviousQuestion: function() {
-            this.atChoiceQuestion = this.$route.query.atPoolQuest
-            var atNbQuestion = this.atChoiceQuestion
-            var atLengthTab = atNbQuestion
+            var atLengthTab = this.$route.query.atPoolQuest
             // 15/11 - Permet d'afficher la question précédente sauf si c'est la première
             if (this.atDisplay > 0) {
                 this.atDisplay--
@@ -132,10 +130,9 @@ export default {
         this.atShuffleArray(this.Questions)
         this.atNextQuestion()
         this.atPreviousQuestion()
-    },
-    mounted() {
         this.atChoiceQuestion = this.$route.query.atPoolQuest
     },
+    mounted() {},
 }
 </script>
 
