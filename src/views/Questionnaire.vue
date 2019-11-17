@@ -74,9 +74,6 @@ export default {
                 JSON.stringify(this.Questions[this.atDisplay].atUserAnswers) ===
                 JSON.stringify(this.Questions[this.atDisplay].atCorrectAnswers)
             ) {
-                console.log(
-                    JSON.stringify(this.Questions[this.atDisplay].atUserAnswers)
-                )
                 // 10/11 - On ajoute au tableau pour l'affichage du détails des résultats
                 this.atResultDetails.push('Réponse correcte')
                 // 10/11 - On incrémente les points

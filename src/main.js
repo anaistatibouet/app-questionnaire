@@ -14,9 +14,6 @@ Vue.config.productionTip = false
 // Ajout de PouchDB qui permettra d'enregistrer les informations en base de données
 import PouchDB from 'pouchdb'
 Vue.prototype.$atSurveryDb = new PouchDB('atDataBase')
-
-var fromage = true
-
 new Vue({
     router,
     render: h => h(App),
