@@ -47,9 +47,9 @@ Affichage du résutat de l'utilisateur
             class="md-raised"
         >Détails du résultat</md-button>
         <md-button @click="atDisplayResult" v-show="atDetails" class="md-raised">Résultat</md-button>
-        <router-link to="/">
-            <md-button class="md-raised md-primary" id="home">Accueil</md-button>
-        </router-link>
+        <!-- <router-link to="/"> -->
+        <md-button class="md-raised md-primary" @click="atGoToHome" id="home">Accueil</md-button>
+        <!-- </router-link> -->
         <Footer></Footer>
     </div>
 </template>
@@ -104,6 +104,12 @@ export default {
         },
         atDisplayResult: function() {
             this.atDetails = false
+        },
+        atGoToHome: function() {
+            this.$router.push({
+                name: '/',
+            })
+            location.reload()
         },
     },
     mounted() {
