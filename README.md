@@ -1,8 +1,5 @@
 # app-questionnaire
 
-**Lien de déploiement**<br>
-https://anaistatibouet.github.io/#/
-
 **Commentaires**<br>
 Mot de passe Administrateur : #EPSI_Vue-js!2019
 
